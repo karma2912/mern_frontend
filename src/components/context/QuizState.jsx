@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import QuizContext from './QuizContext'
-const database = process.env.DATABASE
+
 const QuestState = (props) => {
     const [question,setQuestion] = useState(null)
     const [answer_a,setAnswer_a] = useState(null)
@@ -9,7 +9,7 @@ const QuestState = (props) => {
     const [answer_d,setAnswer_d] = useState(null)
     const [correctAnswer,setCorrectAnswer] = useState(null)
     const func = async (i)=>{
-        const response = await fetch(`${database}/getquestion`)
+        const response = await fetch(`http://localhost:5000/getquestion`)
         const json = await response.json()
         setQuestion(json[i].Question)
         setCorrectAnswer(json[i].correct_answer)
