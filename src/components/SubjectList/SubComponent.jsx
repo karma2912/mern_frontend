@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SubComponent = (props) => {
+
+
   return (
     <>
       <div className="component h-90 w-5/6 text-black p-3 m-5 flex flex-col justify-around sm:flex-row  border-2 bg-indigo-400 border-indigo-500 rounded-2xl hover:w-11/12 hover:transition duration-300 hover:border-4 hover:shadow-2xl hover:border-indigo-500">
