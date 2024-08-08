@@ -6,7 +6,7 @@ import QuizContext from '../context/QuizContext'
 
 const Second = () => {
   const context = useContext(QuizContext)
-  const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,delayedFunction,stopFunction,qid} = context
+  const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,delayedFunction,qid} = context
   const i = 0;
   useEffect(()=>{
     delayedFunction(i)

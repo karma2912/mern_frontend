@@ -1,25 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Questions = (props) => {
+  
+  const [marks,setMarks] = useState(0)
   const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction} = props
-
-  let option_a = false
-  let option_b = false
-  let option_c = false
-  let option_d = false
+  localStorage.setItem("marks",marks)
   console.log(correctAnswer)
-  if(correctAnswer==="answer_a"){
-    option_a = true
-  }
-  if(correctAnswer==="answer_b"){
-    option_b = true
-  }
-  if(correctAnswer==="answer_c"){
-    option_c = true
-  }
-  if(correctAnswer==="answer_d"){
-    option_d = true
-  }
+  
   const [Acolor,setAColor] = useState("red")
   const [Bcolor,setBColor] = useState("red")
   const [Ccolor,setCColor] = useState("red")
@@ -33,6 +20,10 @@ const Questions = (props) => {
   const handleA=()=>{
     console.log("A is clicked")
     if(correctAnswer==="answer_a"){
+      setMarks(marks+1)
+      localStorage.setItem("marks",marks)
+      console.log(marks)
+      console.log("color changed to green")
       setAColor("green")
     }
     else{
@@ -45,6 +36,10 @@ const Questions = (props) => {
   const handleB=()=>{
     console.log("B is clicked")
     if(correctAnswer==="answer_b"){
+      setMarks(marks+1)
+      localStorage.setItem("marks",marks)
+      console.log(marks)
+      console.log("color changed to green")
       setBColor("green")
     }
     else{
@@ -57,7 +52,10 @@ const Questions = (props) => {
   const handleC=()=>{
     console.log("C is clicked")
     if(correctAnswer==="answer_c"){
-
+      setMarks(marks+1)
+      localStorage.setItem("marks",marks)
+      console.log(marks)
+      console.log("color changed to green")
       setCColor("green")
     }
     else{
@@ -70,6 +68,10 @@ const Questions = (props) => {
   const handleD=()=>{
     console.log("D is clicked")
     if(correctAnswer==="answer_d"){
+      setMarks(marks+1)
+      localStorage.setItem("marks",marks)
+      console.log(marks)
+      console.log("color changed to green")
       setDColor("green")
     }
     else{
@@ -83,7 +85,7 @@ const Questions = (props) => {
     <>
       <div className="flex justify-between m-12 md:flex-row flex-col">
       <div className="circle md:h-96 h-40 bg-slate-400 md:w-[20rem] w-full flex justify-center items-center rounded-2xl">
-          Circle Component
+          {`Total Marks:${marks}`}
         </div>
         <div className="question-part h-96 md:w-[70rem] w-full bg-white rounded-2xl">
           <div className="question">

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import QuizContext from './QuizContext'
 
 const QuestState = (props) => {
+
     const [question,setQuestion] = useState(null)
     const [answer_a,setAnswer_a] = useState(null)
     const [answer_b,setAnswer_b] = useState(null)
@@ -25,13 +26,10 @@ const QuestState = (props) => {
     const delayedFunction = (i) => {
       func(i)
     };
-
-    const stopFunction = () =>{
-      
-    }
+   
   return (
     <QuizContext.Provider
-    value={{func,question,answer_a,answer_b,answer_c,answer_d,correctAnswer,delayedFunction,stopFunction,qid}}
+    value={{func,question,answer_a,answer_b,answer_c,answer_d,correctAnswer,delayedFunction,qid}}
   >
     {props.children}
   </QuizContext.Provider>
