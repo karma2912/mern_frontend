@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Second from './Second'
-import QuizState from '../context/QuizState'
-import QuizContext from '../context/QuizContext'
 import { useNavigate } from 'react-router-dom'
 
-const First = () => {
+const First = (props) => {
+  const {attr} = props
   const navigate = useNavigate()
   const [modal,setModal] = useState(false)
   
@@ -26,7 +25,7 @@ const First = () => {
         <button className='md:text-2xl text-xl border-2 border-black md:p-2 p-1 rounded-xl md:w-32 w-24 flex justify-around items-center' onClick={handleNext}>Start<i className="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>}
-   {modal && <Second/>}
+   {modal && <Second attr={attr}/>}
     
     </>
   )

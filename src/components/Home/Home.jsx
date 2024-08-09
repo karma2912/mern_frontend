@@ -43,7 +43,7 @@ const Home = () => {
     delay:2,
    })
    gsap.from(".inner-s",{
-    y:-2050,
+    x:-2050,
     duration:1.5,
     delay:2,
    })

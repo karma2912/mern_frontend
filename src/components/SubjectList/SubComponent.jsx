@@ -20,15 +20,15 @@ const SubComponent = (props) => {
             <div className="pt-2">
               <div className="font-semibold text-lg text-red-900 pb-4">
                 Easy <i className="fa-solid fa-arrow-right md:ml-3 ml-2"></i>
-                <Link className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl" to="/test"><i className="fa-regular fa-circle-play mr-2"></i>Click Here</Link>
+                <Link className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl hover:bg-slate-300" to="/etest"><i className="fa-regular fa-circle-play mr-2"></i>Click Here</Link>
               </div>
               <div className="font-semibold text-lg text-red-900 pb-4">
                 Moderate <i className="fa-solid fa-arrow-right md:ml-1 ml-2"></i>
-                <Link className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl" to="/test"><i className="fa-regular fa-circle-play mr-2"></i>Click Here</Link>
+                <Link className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl hover:bg-slate-300" to="/mtest"><i className="fa-regular fa-circle-play mr-2"></i>Click Here</Link>
               </div>
               <div className="font-semibold text-lg text-red-900 pb-4">
                 Hard <i className="fa-solid fa-arrow-right md:ml-3 ml-1"></i>
-                <Link className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl" to="/test"><i className="fa-regular fa-circle-play mr-2"></i>Click Here</Link>
+                <Link className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl hover:bg-slate-300" to="/htest"><i className="fa-regular fa-circle-play mr-2"></i>Click Here</Link>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@ const SubComponent = (props) => {
         </div>
         <div className="font-semibold text-lg text-red-900 p-3">
                 Master <i className="fa-solid fa-arrow-right md:ml-3 ml-1"></i>
-                <Link className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl" to="/test"><i className="fa-regular fa-circle-play mr-2"></i>Click Here</Link>
+                <Link className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl hover:bg-slate-300" to="/test"><i className="fa-regular fa-circle-play mr-2"></i>Click Here</Link>
               </div>
         </div>
       </div>

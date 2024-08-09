@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Questions = (props) => {
   
   const [marks,setMarks] = useState(0)
-  const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction} = props
+  const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction,attr} = props
   localStorage.setItem("marks",marks)
   console.log(correctAnswer)
   
@@ -24,13 +24,13 @@ const Questions = (props) => {
       localStorage.setItem("marks",marks)
       console.log(marks)
       console.log("color changed to green")
-      setAColor("green")
+      setAColor("green-500 ")
     }
     else{
       setAColor("red-500 ")
     }
     setTimeout(()=>{
-      delayedFunction(qid)
+      delayedFunction(qid,attr)
     },250)
   }
   const handleB=()=>{
@@ -40,13 +40,13 @@ const Questions = (props) => {
       localStorage.setItem("marks",marks)
       console.log(marks)
       console.log("color changed to green")
-      setBColor("green")
+      setBColor("green-500 ")
     }
     else{
       setBColor("red-500 ")
     }
     setTimeout(()=>{
-      delayedFunction(qid)
+      delayedFunction(qid,attr)
     },250)
   }
   const handleC=()=>{
@@ -56,13 +56,13 @@ const Questions = (props) => {
       localStorage.setItem("marks",marks)
       console.log(marks)
       console.log("color changed to green")
-      setCColor("green")
+      setCColor("green-500 ")
     }
     else{
       setCColor("red-500 ")
     }
     setTimeout(()=>{
-      delayedFunction(qid)
+      delayedFunction(qid,attr)
     },250)
   }
   const handleD=()=>{
@@ -72,13 +72,13 @@ const Questions = (props) => {
       localStorage.setItem("marks",marks)
       console.log(marks)
       console.log("color changed to green")
-      setDColor("green")
+      setDColor("green-500 ")
     }
     else{
       setDColor("red-500 ")
     }
     setTimeout(()=>{
-      delayedFunction(qid)
+      delayedFunction(qid,attr)
     },250)
   }
   return (

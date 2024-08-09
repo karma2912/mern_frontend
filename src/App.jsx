@@ -47,7 +47,46 @@ const App = () => {
             <>
               <Navbar color="bg-red-400"/>
               <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                <First/>
+                <First attr="easy"/>
+              </div>
+              <Footer/>
+            </>
+          }
+        />
+        <Route
+          path="/etest"
+          key="etest"
+          element={
+            <>
+              <Navbar color="bg-red-400"/>
+              <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
+                <First attr="easy"/>
+              </div>
+              <Footer/>
+            </>
+          }
+        />
+        <Route
+          path="/mtest"
+          key="mtest"
+          element={
+            <>
+              <Navbar color="bg-red-400"/>
+              <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
+                <First attr="moderate"/>
+              </div>
+              <Footer/>
+            </>
+          }
+        />
+        <Route
+          path="/htest"
+          key="htest"
+          element={
+            <>
+              <Navbar color="bg-red-400"/>
+              <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
+                <First attr="hard"/>
               </div>
               <Footer/>
             </>
