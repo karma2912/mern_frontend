@@ -10,42 +10,45 @@ const QuestState = (props) => {
     const [answer_d,setAnswer_d] = useState(null)
     const [qid,setQid] = useState(null)
     const [correctAnswer,setCorrectAnswer] = useState(null)
+    const setfunc =async(i,response)=>{
+      const json = await response.json()
+      setQuestion(json[i].Question)
+      setCorrectAnswer(json[i].correct_answer)
+      const Answers = await json[i].Answers
+      setAnswer_a(json[i].Answers.answer_a)
+      setAnswer_b(json[i].Answers.answer_b)
+      setAnswer_c(json[i].Answers.answer_c)
+      setAnswer_d(json[i].Answers.answer_d)
+      setQid(json[i].Qid)
+    }
     const func = async (i,attr)=>{
       if(attr==="easy"){
         let response = await fetch(`http://localhost:5000/getquestion`)
-        const json = await response.json()
-        setQuestion(json[i].Question)
-        setCorrectAnswer(json[i].correct_answer)
-        const Answers = await json[i].Answers
-        setAnswer_a(json[i].Answers.answer_a)
-        setAnswer_b(json[i].Answers.answer_b)
-        setAnswer_c(json[i].Answers.answer_c)
-        setAnswer_d(json[i].Answers.answer_d)
-        setQid(json[i].Qid)
+        setfunc(i,response)
       }
       else if(attr==="moderate"){
         let response = await fetch(`http://localhost:5000/getwpMquestion`)
-        const json = await response.json()
-        setQuestion(json[i].Question)
-        setCorrectAnswer(json[i].correct_answer)
-        const Answers = await json[i].Answers
-        setAnswer_a(json[i].Answers.answer_a)
-        setAnswer_b(json[i].Answers.answer_b)
-        setAnswer_c(json[i].Answers.answer_c)
-        setAnswer_d(json[i].Answers.answer_d)
-        setQid(json[i].Qid)
+        setfunc(i,response)
       }
       else if(attr==="hard"){
         let response = await fetch(`http://localhost:5000/getwpHquestion`)
-        const json = await response.json()
-        setQuestion(json[i].Question)
-        setCorrectAnswer(json[i].correct_answer)
-        const Answers = await json[i].Answers
-        setAnswer_a(json[i].Answers.answer_a)
-        setAnswer_b(json[i].Answers.answer_b)
-        setAnswer_c(json[i].Answers.answer_c)
-        setAnswer_d(json[i].Answers.answer_d)
-        setQid(json[i].Qid)
+        setfunc(i,response)
+      }
+      else if(attr==="ultimate"){
+        const marks = localStorage.getItem("marks")
+        console.log(marks)
+        if(marks<=3){
+          let response = await fetch(`http://localhost:5000/getquestion`)
+          setfunc(i,response)
+        }
+        if(marks>3 && marks<=7){
+          let response = await fetch(`http://localhost:5000/getwpMquestion`)
+          setfunc(i,response)
+        }
+        if(marks>7 && marks<=10){
+          let response = await fetch(`http://localhost:5000/getwpHquestion`)
+          setfunc(i,response)
+        }
       }
       else{
         console.log("No attribute has been given")

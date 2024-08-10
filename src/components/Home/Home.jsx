@@ -33,7 +33,7 @@ const Home = () => {
     rotate:360
    })
    gsap.from(".outer-box",{
-    y:-2050,
+    opacity:1,
     duration:2,
     delay:1.4,
    })
