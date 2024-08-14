@@ -110,6 +110,19 @@ const App = () => {
           }
         />
         <Route
+          path="/utest"
+          key="utest"
+          element={
+            <>
+              <Navbar color="bg-red-400"/>
+              <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
+                <First attr="ultimate"/>
+              </div>
+              <Footer/>
+            </>
+          }
+        />
+        <Route
           path="/subjects"
           key="subjects"
           element={

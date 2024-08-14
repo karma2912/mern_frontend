@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const Questions = (props) => {
-<<<<<<< HEAD
   
   const [marks,setMarks] = useState(0)
   const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction,attr} = props
@@ -17,37 +16,6 @@ const Questions = (props) => {
    setCColor("red")
    setDColor("red")
   },[qid])
-  const handleA=()=>{
-    if(correctAnswer==="answer_a"){
-      setMarks(marks+1)
-      localStorage.setItem("marks",marks)
-      console.log("color changed to green")
-      setAColor("green")
-=======
-  const [marks, setMarks] = useState(0);
-  const {
-    question,
-    answer_a,
-    answer_b,
-    answer_c,
-    answer_d,
-    correctAnswer,
-    qid,
-    delayedFunction,
-    attr,
-  } = props;
-  localStorage.setItem("marks", marks);
-
-  const [Acolor, setAColor] = useState("red");
-  const [Bcolor, setBColor] = useState("red");
-  const [Ccolor, setCColor] = useState("red");
-  const [Dcolor, setDColor] = useState("red");
-  useEffect(() => {
-    setAColor("red");
-    setBColor("red");
-    setCColor("red");
-    setDColor("red");
-  }, [qid]);
   const handleA = () => {
     if (correctAnswer === "answer_a") {
       setMarks(marks + 1);
@@ -55,36 +23,22 @@ const Questions = (props) => {
       setAColor("green");
     } else {
       setAColor("red-500 ");
->>>>>>> b7eddfed8396230dde97c57921f60b50b3f4d23a
     }
     setTimeout(() => {
       delayedFunction(qid, attr);
     }, 100);
   };
-  const handleB = () => {
-    if (correctAnswer === "answer_b") {
-      setMarks(marks + 1);
-      localStorage.setItem("marks", marks);
-      setBColor("green");
-    } else {
-      setBColor("red-500 ");
-    }
-<<<<<<< HEAD
-    setTimeout(()=>{
-      delayedFunction(qid,attr)
-    },250)
-  }
   const handleB=()=>{
     if(correctAnswer==="answer_b"){
       setMarks(marks+1)
       localStorage.setItem("marks",marks)
       console.log("color changed to green")
       setBColor("green")
-=======
     setTimeout(() => {
       delayedFunction(qid, attr);
     }, 100);
   };
+}
   const handleC = () => {
     if (correctAnswer === "answer_c") {
       setMarks(marks + 1);
@@ -92,39 +46,12 @@ const Questions = (props) => {
       setCColor("green");
     } else {
       setCColor("red-500 ");
->>>>>>> b7eddfed8396230dde97c57921f60b50b3f4d23a
     }
     setTimeout(() => {
       delayedFunction(qid, attr);
     }, 100);
   };
-  const handleD = () => {
-    if (correctAnswer === "answer_d") {
-      setMarks(marks + 1);
-      localStorage.setItem("marks", marks);
-      setDColor("green");
-    } else {
-      setDColor("red-500 ");
-    }
-<<<<<<< HEAD
-    setTimeout(()=>{
-      delayedFunction(qid,attr)
-    },250)
-  }
-  const handleC=()=>{
-    if(correctAnswer==="answer_c"){
-      setMarks(marks+1)
-      localStorage.setItem("marks",marks)
-      console.log("color changed to green")
-      setCColor("green")
-    }
-    else{
-      setCColor("red-500 ")
-    }
-    setTimeout(()=>{
-      delayedFunction(qid,attr)
-    },250)
-  }
+
   const handleD=()=>{
     if(correctAnswer==="answer_d"){
       setMarks(marks+1)
@@ -135,16 +62,12 @@ const Questions = (props) => {
     else{
       setDColor("red-500 ")
     }
-    setTimeout(()=>{
-      delayedFunction(qid,attr)
-    },250)
-  }
-=======
     setTimeout(() => {
       delayedFunction(qid, attr);
     }, 100);
-  };
->>>>>>> b7eddfed8396230dde97c57921f60b50b3f4d23a
+  }
+  
+  ;
   return (
     <>
       <div className="flex justify-between m-12 md:flex-row flex-col">
@@ -192,5 +115,6 @@ const Questions = (props) => {
     </>
   );
 };
+  
 
 export default Questions;
