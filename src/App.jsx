@@ -10,11 +10,11 @@ import Result from "./components/Result/Result";
 import SignUp from "./components/Home/Signup";
 import Login from "./components/Home/Login";
 
-
 const App = () => {
 
   return (
     <>
+
     <QuizState>
 
     <Routes>
@@ -123,6 +123,7 @@ const App = () => {
           }
         />
       </Routes>
+
       </QuizState>
     </>
   );
