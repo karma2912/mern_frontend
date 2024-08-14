@@ -19,6 +19,7 @@ const QuestState = (props) => {
     setAnswer_c(json[i].Answers.answer_c);
     setAnswer_d(json[i].Answers.answer_d);
     setQid(json[i].Qid);
+    
   };
   const func = async (i, attr) => {
     if (attr === "Easy") {
@@ -33,15 +34,15 @@ const QuestState = (props) => {
     } else if (attr === "Ultimate") {
       const marks = localStorage.getItem("marks");
       console.log(marks);
-      if (marks <= 3) {
+      if (marks <= 2) {
         let response = await fetch(`http://localhost:5000/getquestion`);
         setfunc(i, response);
       }
-      if (marks > 3 && marks <= 7) {
+      if (marks > 2 && marks <= 6) {
         let response = await fetch(`http://localhost:5000/getwpMquestion`);
         setfunc(i, response);
       }
-      if (marks > 7 && marks <= 10) {
+      if (marks > 6 && marks <= 10) {
         let response = await fetch(`http://localhost:5000/getwpHquestion`);
         setfunc(i, response);
       }
