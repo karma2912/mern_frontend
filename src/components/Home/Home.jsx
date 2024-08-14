@@ -3,13 +3,16 @@ import quiz from "./coinf.webp"
 import fpawn from "./fpawn.webp"
 import fking from "./fking.webp"
 import frook from "./frook.webp"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import GeneralKnowledge from './GeneralKnowledge'
 import ClgSubject from './ClgSubject'
 import { useGSAP } from '@gsap/react'
 
 const Home = () => {
-
+  const navigate = useNavigate()
+ if(!localStorage.getItem("token")){
+   navigate('/login')
+ }
   useGSAP(()=>{
    gsap.from(".quiz-head",{
     x:-1050,

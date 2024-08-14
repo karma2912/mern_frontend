@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import First from "./components/Test/First";
@@ -7,19 +7,36 @@ import Subjects from "./components/SubjectList/Subjects";
 import Footer from "./components/Footer/Footer";
 import QuizState from "./components/context/QuizState";
 import Result from "./components/Result/Result";
+import SignUp from "./components/Home/Signup";
+import Login from "./components/Home/Login";
 
 
 const App = () => {
+
   return (
     <>
     <QuizState>
-      <Routes>
+
+    <Routes>
+
+        <Route
+          path="/login"
+          key="login"
+          element={
+            <>
+              <div className="md:h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif flex justify-center items-center">
+                <Login/>
+              </div>
+            </>
+          }
+        />
         <Route
           path="/"
           key="home"
           element={
             <>
               <Navbar color="bg-yellow-200"/>
+              
               <div className="md:h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif">
                 <Home/>
               <Footer/>

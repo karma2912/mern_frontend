@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import img from "./qlogo.jpg"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
+  const navigate = useNavigate()
   const NavRef = useRef(null)
   const NavRef2 = useRef(null)
   const optRef = useRef(null)
@@ -22,7 +23,7 @@ const Navbar = (props) => {
     opacity:0,
     duration:1,
     delay:1,
-   })
+   }) 
    gsap.from(NavRef2.current,{
     y:-10,
     opacity:0,
@@ -30,6 +31,10 @@ const Navbar = (props) => {
     delay:1
    })
   },[])
+  const handleLogout=()=>{
+    localStorage.removeItem("token")
+    navigate('/login')
+  }
   return (
     <>
       <header className={`text-black w-full body-font ${props.color} font-serif position sticky top-0 z-40 md:h-[5rem] h-[4rem]`}>
@@ -58,11 +63,8 @@ const Navbar = (props) => {
             <Link className="mr-10 ml-10 hover:text-gray-900" to="/results">Results</Link>
             <Link className="mr-10 ml-10 hover:text-gray-900">Help</Link>
           </nav>
-          <button className="md:inline-flex hidden items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 mr-2 md:mt-0">
-            Login
-          </button>
-          <button className="md:inline-flex hidden items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 ml-2 md:mt-0">
-            Register
+          <button className="md:inline-flex hidden items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 mr-2 md:mt-0" onClick={handleLogout}> 
+            Logout
           </button>
         </div>
       </header>

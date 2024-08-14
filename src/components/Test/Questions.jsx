@@ -5,7 +5,6 @@ const Questions = (props) => {
   const [marks,setMarks] = useState(0)
   const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction,attr} = props
   localStorage.setItem("marks",marks)
-  console.log(correctAnswer)
   
   const [Acolor,setAColor] = useState("red")
   const [Bcolor,setBColor] = useState("red")
@@ -18,13 +17,11 @@ const Questions = (props) => {
    setDColor("red")
   },[qid])
   const handleA=()=>{
-    console.log("A is clicked")
     if(correctAnswer==="answer_a"){
       setMarks(marks+1)
       localStorage.setItem("marks",marks)
-      console.log(marks)
       console.log("color changed to green")
-      setAColor("green-500 ")
+      setAColor("green")
     }
     else{
       setAColor("red-500 ")
@@ -34,13 +31,11 @@ const Questions = (props) => {
     },250)
   }
   const handleB=()=>{
-    console.log("B is clicked")
     if(correctAnswer==="answer_b"){
       setMarks(marks+1)
       localStorage.setItem("marks",marks)
-      console.log(marks)
       console.log("color changed to green")
-      setBColor("green-500 ")
+      setBColor("green")
     }
     else{
       setBColor("red-500 ")
@@ -50,13 +45,11 @@ const Questions = (props) => {
     },250)
   }
   const handleC=()=>{
-    console.log("C is clicked")
     if(correctAnswer==="answer_c"){
       setMarks(marks+1)
       localStorage.setItem("marks",marks)
-      console.log(marks)
       console.log("color changed to green")
-      setCColor("green-500 ")
+      setCColor("green")
     }
     else{
       setCColor("red-500 ")
@@ -66,13 +59,11 @@ const Questions = (props) => {
     },250)
   }
   const handleD=()=>{
-    console.log("D is clicked")
     if(correctAnswer==="answer_d"){
       setMarks(marks+1)
       localStorage.setItem("marks",marks)
-      console.log(marks)
       console.log("color changed to green")
-      setDColor("green-500 ")
+      setDColor("green")
     }
     else{
       setDColor("red-500 ")
