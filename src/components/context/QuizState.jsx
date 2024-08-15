@@ -23,27 +23,27 @@ const QuestState = (props) => {
   };
   const func = async (i, attr) => {
     if (attr === "Easy") {
-      let response = await fetch(`http://localhost:5000/getquestion`);
+      let response = await fetch(`http://localhost:5000/api/getquestion`);
       setfunc(i, response);
     } else if (attr === "Moderate") {
-      let response = await fetch(`http://localhost:5000/getwpMquestion`);
+      let response = await fetch(`http://localhost:5000/api/getwpMquestion`);
       setfunc(i, response);
     } else if (attr === "Hard") {
-      let response = await fetch(`http://localhost:5000/getwpHquestion`);
+      let response = await fetch(`http://localhost:5000/api/getwpHquestion`);
       setfunc(i, response);
     } else if (attr === "Ultimate") {
       const marks = localStorage.getItem("marks");
       console.log(marks);
       if (marks <= 2) {
-        let response = await fetch(`http://localhost:5000/getquestion`);
+        let response = await fetch(`http://localhost:5000/api/getquestion`);
         setfunc(i, response);
       }
       if (marks > 2 && marks <= 6) {
-        let response = await fetch(`http://localhost:5000/getwpMquestion`);
+        let response = await fetch(`http://localhost:5000/api/getwpMquestion`);
         setfunc(i, response);
       }
       if (marks > 6 && marks <= 10) {
-        let response = await fetch(`http://localhost:5000/getwpHquestion`);
+        let response = await fetch(`http://localhost:5000/api/getwpHquestion`);
         setfunc(i, response);
       }
     } else {

@@ -7,12 +7,24 @@ import Subjects from "./components/SubjectList/Subjects";
 import Footer from "./components/Footer/Footer";
 import QuizState from "./components/context/QuizState";
 import Result from "./components/Result/Result";
+import Login from "./components/Home/Login";
 
 const App = () => {
   return (
     <>
       <QuizState>
         <Routes>
+          <Route
+            path="/login"
+            key="login"
+            element={
+              <>
+                <div className="md:h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif flex justify-center items-center">
+                  <Login/>
+                </div>
+              </>
+            }
+          />
           <Route
             path="/"
             key="home"

@@ -1,14 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import img from "./qlogo.jpg"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const NavRef = useRef(null)
   const NavRef2 = useRef(null)
   const optRef = useRef(null)
   const [modal,setModal] = useState(false)
+  const navigate = useNavigate()
   const toggleButton =()=>{
     setModal(!modal)
+  }
+  const handleLogout=()=>{
+    localStorage.removeItem("Token")
+    navigate('/login')
   }
   useEffect(()=>{
     gsap.from(NavRef.current,{
@@ -58,11 +63,8 @@ const Navbar = (props) => {
             <Link className="mr-10 ml-10 hover:text-gray-900" to="/results">Results</Link>
             <Link className="mr-10 ml-10 hover:text-gray-900">Help</Link>
           </nav>
-          <button className="md:inline-flex hidden items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 mr-2 md:mt-0">
-            Login
-          </button>
-          <button className="md:inline-flex hidden items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 ml-2 md:mt-0">
-            Register
+          <button className="md:inline-flex hidden items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 mr-2 md:mt-0" onClick={handleLogout}>
+            Logout
           </button>
         </div>
       </header>
