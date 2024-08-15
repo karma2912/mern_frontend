@@ -11,9 +11,11 @@ import { useGSAP } from '@gsap/react'
 
 const Home = () => {
   const navigate = useNavigate()
- if(!localStorage.getItem("token")){
-   navigate('/login')
- }
+  if(!localStorage.getItem("token")){
+    navigate('/login')
+  }
+
+
   useGSAP(()=>{
    gsap.from(".quiz-head",{
     x:-1050,

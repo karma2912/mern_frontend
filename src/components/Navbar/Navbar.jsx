@@ -32,7 +32,7 @@ const Navbar = (props) => {
    })
   },[])
   const handleLogout=()=>{
-    localStorage.removeItem("token")
+    localStorage.removeItem("Token")
     navigate('/login')
   }
   return (

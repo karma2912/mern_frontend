@@ -7,7 +7,7 @@ const Login = () => {
     const [credentials,setCredentials] = useState({email:"",password:""})
     const handleClick= async (e)=>{
     e.preventDefault()
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+    const response = await fetch("http://localhost:5000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -15,7 +15,7 @@ const Login = () => {
         body: JSON.stringify({email:credentials.email,password:credentials.password}),
       });
       const json = await response.json();
-    localStorage.setItem("token",json.token)
+    localStorage.setItem("Token",json.token)
     if(json.token){
       const value = localStorage.getItem("Token")
     navigate("/")
