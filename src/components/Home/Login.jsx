@@ -18,7 +18,7 @@ const Login = () => {
     localStorage.setItem("Token",json.token)
     if(json.token){
       const value = localStorage.getItem("Token")
-    navigate("/")
+    navigate("/home")
     }
     }
     const onchange = (e) => {

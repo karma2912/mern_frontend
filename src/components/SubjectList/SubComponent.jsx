@@ -2,20 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SubComponent = (props) => {
+  const {name,img} = props
   const handleEasy=()=>{
     localStorage.setItem("Type","Easy")
+    localStorage.setItem("Subject",name)
+    localStorage.setItem("Img",img)
     console.log("easy")
   }
   const handleModerate=()=>{
     localStorage.setItem("Type","Moderate")
+    localStorage.setItem("Subject",name)
+    localStorage.setItem("Img",img)
     console.log("Moderate")
   }
   const handleHard=()=>{
     localStorage.setItem("Type","Hard")
+    localStorage.setItem("Subject",name)
+    localStorage.setItem("Img",img)
     console.log("Hard")
   }
   const handleUltimate=()=>{
     localStorage.setItem("Type","Ultimate")
+    localStorage.setItem("Subject",name)
+    localStorage.setItem("Img",img)
     console.log("Ultimate")
   }
   return (
@@ -36,7 +45,7 @@ const SubComponent = (props) => {
                 Easy <i className="fa-solid fa-arrow-right md:ml-3 ml-2"></i>
                 <Link
                   className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl hover:bg-slate-300" onClick={handleEasy}
-                  to="/etest"
+                  to={`${props.to}etest`}
                 >
                   <i className="fa-regular fa-circle-play mr-2"></i>Click Here
                 </Link>
@@ -46,7 +55,7 @@ const SubComponent = (props) => {
                 <i className="fa-solid fa-arrow-right md:ml-1 ml-2"></i>
                 <Link
                   className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl hover:bg-slate-300" onClick={handleModerate}
-                  to="/mtest"
+                  to={`${props.to}mtest`}
                 >
                   <i className="fa-regular fa-circle-play mr-2"></i>Click Here
                 </Link>
@@ -55,7 +64,7 @@ const SubComponent = (props) => {
                 Hard <i className="fa-solid fa-arrow-right md:ml-3 ml-1"></i>
                 <Link
                   className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl hover:bg-slate-300" onClick={handleHard}
-                  to="/htest"
+                  to={`${props.to}htest`}
                 >
                   <i className="fa-regular fa-circle-play mr-2"></i>Click Here
                 </Link>
@@ -77,7 +86,7 @@ const SubComponent = (props) => {
             Master <i className="fa-solid fa-arrow-right md:ml-3 ml-1"></i>
             <Link
               className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl hover:bg-slate-300" onClick={handleUltimate}
-              to="/utest"
+              to={`${props.to}utest`}
             >
               <i className="fa-regular fa-circle-play mr-2"></i>Click Here
             </Link>

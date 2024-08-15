@@ -1,28 +1,30 @@
 import React from 'react'
 
 const ResultComponent = (props) => {
+    const subject_name = localStorage.getItem("Subject")
+    
   return (
    <>
-   <div className='component h-90 w-5/6 text-black p-3 m-5 flex flex-col justify-around sm:flex-row  border-2 bg-indigo-400 border-indigo-500 rounded-2xl hover:w-11/12 hover:transition duration-300 hover:border-4 hover:shadow-2xl hover:border-indigo-50'>
-   <div className='text-center text-2xl flex flex-col justify-around '>
-    Web Programming
-    <img className="h-[15rem]" src={props.img}/>
+   <div className='component h-90 w-5/6 text-black p-3 m-5 flex flex-col justify-around sm:flex-row  border-2 bg-orange-400 border-orange-500 rounded-2xl hover:w-11/12 hover:transition duration-300 hover:border-4 hover:shadow-2xl hover:border-indigo-50'>
+   <div className='text-center text-2xl font-bold flex flex-col justify-around '>
+    {`${subject_name}`}
+    <img className="h-[15rem] rounded-2xl mt-4" src={localStorage.getItem("Img")}/>
    </div>
-    <div className='text-center text-2xl flex flex-col justify-evenly'>
+    <div className='text-center font-bold text-2xl flex flex-col justify-evenly'>
         Marks
-        <div>
+        <div className='font-normal'>
            {`${props.marks} /10`}
         </div>
     </div>
-    <div className='text-center text-2xl flex flex-col justify-evenly'>
+    <div className='text-center font-bold text-2xl flex flex-col justify-evenly'>
         Type
-        <div>
+        <div className='font-normal'>
            {`${localStorage.getItem("Type")} Test`}
         </div>
     </div>
-    <div className='text-center text-2xl flex flex-col justify-evenly'>
+    <div className='text-center font-bold text-2xl flex flex-col justify-evenly'>
         Time
-        <div>
+        <div className='font-normal'>
            13 wednesday
         </div>
     </div>
