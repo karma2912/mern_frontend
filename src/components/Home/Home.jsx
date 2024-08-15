@@ -11,9 +11,11 @@ import { useGSAP } from '@gsap/react'
 
 const Home = () => {
   const navigate = useNavigate()
-  if(!localStorage.getItem("token")){
-    navigate('/login')
-  }
+  useEffect(()=>{
+    if(!localStorage.getItem("Token")){
+      navigate('/login')
+    }
+  },[])
 
 
   useGSAP(()=>{

@@ -29,16 +29,18 @@ const Questions = (props) => {
     }, 100);
   };
   const handleB=()=>{
-    if(correctAnswer==="answer_b"){
-      setMarks(marks+1)
-      localStorage.setItem("marks",marks)
-      console.log("color changed to green")
-      setBColor("green")
+    if (correctAnswer === "answer_b") {
+      setMarks(marks + 1);
+      localStorage.setItem("marks", marks);
+      setAColor("green");
+    } else {
+      setAColor("red-500 ");
+    }
     setTimeout(() => {
       delayedFunction(qid, attr);
     }, 100);
   };
-}
+
   const handleC = () => {
     if (correctAnswer === "answer_c") {
       setMarks(marks + 1);

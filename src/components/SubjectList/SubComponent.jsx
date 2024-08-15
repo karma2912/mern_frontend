@@ -2,6 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SubComponent = (props) => {
+  const handleEasy=()=>{
+    localStorage.setItem("Type","Easy")
+    console.log("easy")
+  }
+  const handleModerate=()=>{
+    localStorage.setItem("Type","Moderate")
+    console.log("Moderate")
+  }
+  const handleHard=()=>{
+    localStorage.setItem("Type","Hard")
+    console.log("Hard")
+  }
+  const handleUltimate=()=>{
+    localStorage.setItem("Type","Ultimate")
+    console.log("Ultimate")
+  }
   return (
     <>
       <div className="component h-90 w-5/6 text-black p-3 m-5 flex flex-col justify-around sm:flex-row  border-2 bg-indigo-400 border-indigo-500 rounded-2xl hover:w-11/12 hover:transition duration-300 hover:border-4 hover:shadow-2xl hover:border-indigo-500">
@@ -19,7 +35,7 @@ const SubComponent = (props) => {
               <div className="font-semibold text-lg text-red-900 pb-4">
                 Easy <i className="fa-solid fa-arrow-right md:ml-3 ml-2"></i>
                 <Link
-                  className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl hover:bg-slate-300"
+                  className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl hover:bg-slate-300" onClick={handleEasy}
                   to="/etest"
                 >
                   <i className="fa-regular fa-circle-play mr-2"></i>Click Here
@@ -29,7 +45,7 @@ const SubComponent = (props) => {
                 Moderate{" "}
                 <i className="fa-solid fa-arrow-right md:ml-1 ml-2"></i>
                 <Link
-                  className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl hover:bg-slate-300"
+                  className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl hover:bg-slate-300" onClick={handleModerate}
                   to="/mtest"
                 >
                   <i className="fa-regular fa-circle-play mr-2"></i>Click Here
@@ -38,7 +54,7 @@ const SubComponent = (props) => {
               <div className="font-semibold text-lg text-red-900 pb-4">
                 Hard <i className="fa-solid fa-arrow-right md:ml-3 ml-1"></i>
                 <Link
-                  className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl hover:bg-slate-300"
+                  className="bg-white p-1 md:m-8 m-3 border-2 rounded-xl hover:bg-slate-300" onClick={handleHard}
                   to="/htest"
                 >
                   <i className="fa-regular fa-circle-play mr-2"></i>Click Here
@@ -60,7 +76,7 @@ const SubComponent = (props) => {
           <div className="font-semibold text-lg text-red-900 p-3">
             Master <i className="fa-solid fa-arrow-right md:ml-3 ml-1"></i>
             <Link
-              className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl hover:bg-slate-300"
+              className="bg-white p-1 md:m-8 m-1 border-2 rounded-xl hover:bg-slate-300" onClick={handleUltimate}
               to="/utest"
             >
               <i className="fa-regular fa-circle-play mr-2"></i>Click Here

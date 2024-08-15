@@ -111,7 +111,7 @@ const App = () => {
               <>
                 <Navbar color="bg-red-400" />
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="ultimate" />
+                  <First attr="Ultimate" />
                 </div>
                 <Footer />
               </>

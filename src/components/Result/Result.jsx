@@ -1,10 +1,12 @@
 
 import React from 'react'
-
-const Result = () => {
+import ResultComponent from './ResultComponent'
+import amf from '../SubjectList/wpf.jpg'
+const Result = (props) => {
+  const marks = localStorage.getItem("marks")
   return (
-    <div>
-      No current Results
+    <div className='flex w-full max-w-full flex-col items-center'>
+      <ResultComponent img={amf} marks={marks}/>
     </div>
   )
 }
