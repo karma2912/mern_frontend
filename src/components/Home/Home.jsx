@@ -1,61 +1,67 @@
-import React from "react";
-import quiz from "./coinf.webp";
-import fpawn from "./fpawn.webp";
-import fking from "./fking.webp";
-import frook from "./frook.webp";
-import { Link } from "react-router-dom";
-import GeneralKnowledge from "./GeneralKnowledge";
-import ClgSubject from "./ClgSubject";
-import { useGSAP } from "@gsap/react";
+
+import React, { useEffect, useRef } from 'react'
+import quiz from "./coinf.webp"
+import fpawn from "./fpawn.webp"
+import fking from "./fking.webp"
+import frook from "./frook.webp"
+import { Link, useNavigate } from 'react-router-dom'
+import GeneralKnowledge from './GeneralKnowledge'
+import ClgSubject from './ClgSubject'
+import { useGSAP } from '@gsap/react'
 
 const Home = () => {
-  useGSAP(() => {
-    gsap.from(".quiz-head", {
-      x: -1050,
-      duration: 1.5,
-      delay: 1,
-    });
-    gsap.from(".text-part", {
-      x: -1050,
-      duration: 1.5,
-      delay: 1.1,
-    });
-    gsap.from(".button", {
-      x: -1050,
-      duration: 1.5,
-      delay: 1.2,
-    });
-    gsap.from(".image", {
-      y: -2050,
-      duration: 1.5,
-      delay: 1.2,
-      rotate: 360,
-    });
-    gsap.from(".outer-box", {
-      opacity: 1,
-      duration: 2,
-      delay: 1.4,
-    });
-    gsap.from(".inner-f", {
-      x: -1050,
-      duration: 1.5,
-      delay: 2,
-    });
-    gsap.from(".inner-s", {
-      x: -2050,
-      duration: 1.5,
-      delay: 2,
-    });
-    gsap.from(".inner-t", {
-      x: 1050,
-      duration: 1.5,
-      delay: 2,
-    });
-    gsap.from(".black-curve", {
-      y: -2050,
-      duration: 1.5,
-    });
-  });
+  const navigate = useNavigate()
+ if(!localStorage.getItem("token")){
+   navigate('/login')
+ }
+  useGSAP(()=>{
+   gsap.from(".quiz-head",{
+    x:-1050,
+    duration:1.5,
+    delay:1
+   })
+   gsap.from(".text-part",{
+    x:-1050,
+    duration:1.5,
+    delay:1.1
+   })
+   gsap.from(".button",{
+    x:-1050,
+    duration:1.5,
+    delay:1.2
+   })
+   gsap.from(".image",{
+    y:-2050,
+    duration:1.5,
+    delay:1.2,
+    rotate:360
+   })
+   gsap.from(".outer-box",{
+    y:-2050,
+    duration:2,
+    delay:1.4,
+   })
+   gsap.from(".inner-f",{
+    x:-1050,
+    duration:1.5,
+    delay:2,
+   })
+   gsap.from(".inner-s",{
+    x:-2050,
+    duration:1.5,
+    delay:2,
+   })
+   gsap.from(".inner-t",{
+    x:1050,
+    duration:1.5,
+    delay:2,
+   })
+   gsap.from(".black-curve",{
+    y:-2050,
+    duration:1.5,
+   })
+  })
+
   return (
     <>
       <div className="md:h-[55rem] h-[95rem]">

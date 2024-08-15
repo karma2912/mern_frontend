@@ -2,7 +2,7 @@ import React from 'react'
 
 const Progress = (props) => {
   const {qid} = props
-  return (
+return (
     <div className='m-12 hidden bg-red-500 h-48 md:flex justify-around items-center text-xl rounded-2xl'>
       <div className={qid===1 ? `h-14 w-20 bg-green-400 flex justify-center items-center rounded-3xl`:`h-14 w-20 bg-orange-400 flex justify-center items-center rounded-3xl`}>1</div>
       <div className={qid===2 ? `h-14 w-20 bg-green-400 flex justify-center items-center rounded-3xl`:`h-14 w-20 bg-orange-400 flex justify-center items-center rounded-3xl`}>2</div>

@@ -7,7 +7,7 @@ const Login = () => {
     const [credentials,setCredentials] = useState({email:"",password:""})
     const handleClick= async (e)=>{
     e.preventDefault()
-    const response = await fetch("http://localhost:5000/auth/login", {
+    const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -15,16 +15,15 @@ const Login = () => {
         body: JSON.stringify({email:credentials.email,password:credentials.password}),
       });
       const json = await response.json();
-    localStorage.setItem("Token",json.token)
+    localStorage.setItem("token",json.token)
     if(json.token){
+      const value = localStorage.getItem("Token")
     navigate("/")
-    const value = localStorage.getItem("Token")
     }
     }
     const onchange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
       };
-      
   return (
     <>
   <section className="text-gray-600 body-font relative">
@@ -47,8 +46,10 @@ const Login = () => {
               <input type="email" id="password" name="password" value={credentials.password} onChange={onchange}className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-8 transition-colors duration-200 ease-in-out"/>
             </div>
           </div>
+          <div className="w-full flex justify-center items-center">
           <div className="p-2 w-full">
             <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick={handleClick}>Button</button>
+          </div>
           </div>
           <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
             <a className="text-indigo-500">example@email.com</a>
