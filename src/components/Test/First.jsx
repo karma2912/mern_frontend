@@ -3,7 +3,8 @@ import Second from "./Second";
 import { useNavigate } from "react-router-dom";
 
 const First = (props) => {
-  const { attr } = props;
+  const { attr,type } = props;
+  console.log(type)
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
 
@@ -40,7 +41,7 @@ const First = (props) => {
           </div>
         </div>
       )}
-      {modal && <Second attr={attr} />}
+      {modal && <Second attr={attr} type={type}/>}
     </>
   );
 };

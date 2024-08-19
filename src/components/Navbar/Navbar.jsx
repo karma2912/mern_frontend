@@ -51,7 +51,7 @@ const Navbar = (props) => {
          {modal && 
            <div className={`text-black w-full body-font ${props.color} position sticky top-0 z-40 h-[14.5rem] `}>
             <nav className="flex flex-col text-lg font-serif items-start p-3 w-full">
-            <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center" to="/" onClick={toggleButton}>Home<i className="fa-solid fa-house"></i></Link>
+            <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center" to="/home" onClick={toggleButton}>Home<i className="fa-solid fa-house"></i></Link>
             <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center"to="/subjects" onClick={toggleButton}>Subjects<i className="fa-solid fa-book-open-reader"></i></Link>
             <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center" to="/results" onClick={toggleButton}>Results<i className="fa-solid fa-square-poll-horizontal"></i></Link>
             <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center" onClick={toggleButton}>Help<i className="fa-solid fa-handshake-angle"></i></Link>
@@ -59,7 +59,7 @@ const Navbar = (props) => {
           </nav>
           </div>}
           <nav ref={optRef} className="md:ml-auto md:mr-auto md:flex hidden flex-wrap items-center text-base justify-center font-bold">
-            <Link className="mr-10 ml-10 hover:text-gray-900" to="/">Home</Link>
+            <Link className="mr-10 ml-10 hover:text-gray-900" to="/home">Home</Link>
             <Link className="mr-10 ml-10 hover:text-gray-900" to="/subjects" >Subjects</Link>
             <Link className="mr-10 ml-10 hover:text-gray-900" to="/results">Results</Link>
             <Link className="mr-10 ml-10 hover:text-gray-900">Help</Link>

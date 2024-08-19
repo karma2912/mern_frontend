@@ -19,31 +19,34 @@ const QuestState = (props) => {
     setAnswer_c(json[i].Answers.answer_c);
     setAnswer_d(json[i].Answers.answer_d);
     setQid(json[i].Qid);
-    
+    if (i === 10) {
+      console.log("Question available nhi hai bhai");
+      return (i = 9);
+    }
   };
-  const func = async (i, attr) => {
+  const func = async (i, attr,type) => {
     if (attr === "Easy") {
-      let response = await fetch(`http://localhost:5000/api/getquestion`);
+      let response = await fetch(`http://localhost:5000/api/${type}question`);
       setfunc(i, response);
     } else if (attr === "Moderate") {
-      let response = await fetch(`http://localhost:5000/api/getwpMquestion`);
+      let response = await fetch(`http://localhost:5000/api/${type}Mquestion`);
       setfunc(i, response);
     } else if (attr === "Hard") {
-      let response = await fetch(`http://localhost:5000/api/getwpHquestion`);
+      let response = await fetch(`http://localhost:5000/api/${type}Hquestion`);
       setfunc(i, response);
     } else if (attr === "Ultimate") {
       const marks = localStorage.getItem("marks");
       console.log(marks);
       if (marks <= 2) {
-        let response = await fetch(`http://localhost:5000/api/getquestion`);
+        let response = await fetch(`http://localhost:5000/api/${type}question`);
         setfunc(i, response);
       }
       if (marks > 2 && marks <= 6) {
-        let response = await fetch(`http://localhost:5000/api/getwpMquestion`);
+        let response = await fetch(`http://localhost:5000/api/${type}Mquestion`);
         setfunc(i, response);
       }
       if (marks > 6 && marks <= 10) {
-        let response = await fetch(`http://localhost:5000/api/getwpHquestion`);
+        let response = await fetch(`http://localhost:5000/api/${type}Hquestion`);
         setfunc(i, response);
       }
     } else {
@@ -51,8 +54,9 @@ const QuestState = (props) => {
     }
   };
 
-  const delayedFunction = (i, attr) => {
-    func(i, attr);
+  const delayedFunction = (i, attr ,type) => {
+    console.log(type)
+    func(i, attr,type);
   };
 
   return (

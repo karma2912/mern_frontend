@@ -72,7 +72,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Easy" />
+                  <First attr="Easy" type="getdb" />
                 </div>
                 <Footer />
               </>
@@ -85,7 +85,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Easy" />
+                  <First attr="Easy" type="get"/>
                 </div>
                 <Footer />
               </>
@@ -98,7 +98,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Easy" />
+                  <First attr="Easy" type="getam"/>
                 </div>
                 <Footer />
               </>
@@ -111,7 +111,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Easy" />
+                  <First attr="Easy" type="getse"/>
                 </div>
                 <Footer />
               </>
@@ -124,7 +124,7 @@ const App = () => {
               <>
                
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Moderate" />
+                  <First attr="Moderate" type="getdb" />
                 </div>
                 <Footer />
               </>
@@ -137,7 +137,7 @@ const App = () => {
               <>
                
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Moderate" />
+                  <First attr="Moderate" type="getwp"/>
                 </div>
                 <Footer />
               </>
@@ -150,7 +150,7 @@ const App = () => {
               <>
                
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Moderate" />
+                  <First attr="Moderate" type="getam"/>
                 </div>
                 <Footer />
               </>
@@ -163,7 +163,7 @@ const App = () => {
               <>
                
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Moderate" />
+                  <First attr="Moderate" type="getse"/>
                 </div>
                 <Footer />
               </>
@@ -176,7 +176,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Hard" />
+                  <First attr="Hard" type="getdb"/>
                 </div>
                 <Footer />
               </>
@@ -189,7 +189,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Hard" />
+                  <First attr="Hard" type="getwp"/>
                 </div>
                 <Footer />
               </>
@@ -202,7 +202,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Hard" />
+                  <First attr="Hard" type="getam"/>
                 </div>
                 <Footer />
               </>
@@ -215,7 +215,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Hard" />
+                  <First attr="Hard" type="getse"/>
                 </div>
                 <Footer />
               </>
@@ -228,7 +228,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Ultimate" />
+                  <First attr="Ultimate" type="getdb"/>
                 </div>
                 <Footer />
               </>
@@ -241,7 +241,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Ultimate" />
+                  <First attr="Ultimate" type="getwp"/>
                 </div>
                 <Footer />
               </>
@@ -254,7 +254,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Ultimate" />
+                  <First attr="Ultimate" type="getam"/>
                 </div>
                 <Footer />
               </>
@@ -267,7 +267,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Ultimate" />
+                  <First attr="Ultimate" type="getse"/>
                 </div>
                 <Footer />
               </>

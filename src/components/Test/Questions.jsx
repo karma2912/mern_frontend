@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Questions = (props) => {
   
   const [marks,setMarks] = useState(0)
-  const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction,attr} = props
+  const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction,attr,type} = props
   localStorage.setItem("marks",marks)
   
   const [Acolor,setAColor] = useState("red")
@@ -25,7 +25,7 @@ const Questions = (props) => {
       setAColor("red-500 ");
     }
     setTimeout(() => {
-      delayedFunction(qid, attr);
+      delayedFunction(qid, attr,type);
     }, 100);
   };
   const handleB=()=>{
@@ -37,7 +37,7 @@ const Questions = (props) => {
       setAColor("red-500 ");
     }
     setTimeout(() => {
-      delayedFunction(qid, attr);
+      delayedFunction(qid, attr,type);
     }, 100);
   };
 
@@ -50,7 +50,7 @@ const Questions = (props) => {
       setCColor("red-500 ");
     }
     setTimeout(() => {
-      delayedFunction(qid, attr);
+      delayedFunction(qid, attr,type);
     }, 100);
   };
 
@@ -65,7 +65,7 @@ const Questions = (props) => {
       setDColor("red-500 ")
     }
     setTimeout(() => {
-      delayedFunction(qid, attr);
+      delayedFunction(qid, attr,type);
     }, 100);
   }
   
