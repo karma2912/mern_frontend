@@ -73,11 +73,11 @@ const Questions = (props) => {
   return (
     <>
       <div className="flex justify-between m-12 md:flex-row flex-col">
-        <div className="circle md:h-96 h-40 bg-slate-400 md:w-[20rem] w-full flex justify-center items-center rounded-2xl">
+        <div className="circle md:min-h-96 h-40 bg-slate-400 md:w-[20rem] w-full flex justify-center items-center rounded-2xl">
           {`Total Marks:${marks}`}
         </div>
-        <div className="question-part md:h-96 h-full md:w-[70rem] w-full bg-white rounded-2xl">
-          <div className="question">
+        <div className="question-part ">
+          <div className="question md:min-h-96 h-full md:w-[70rem] w-full bg-white rounded-2xl">
             <div className="p-1 font-medium text-xl">{`Question ${qid} of 10`}</div>
             <div className="mt-4 p-2 font-semibold">{question}</div>
             <div />
