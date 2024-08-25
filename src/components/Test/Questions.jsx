@@ -4,7 +4,6 @@ const Questions = (props) => {
   
   const [marks,setMarks] = useState(0)
   const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction,attr,type} = props
-  localStorage.setItem("marks",marks)
   
   const [Acolor,setAColor] = useState("red")
   const [Bcolor,setBColor] = useState("red")
@@ -18,8 +17,7 @@ const Questions = (props) => {
   },[qid])
   const handleA = () => {
     if (correctAnswer === "answer_a") {
-      setMarks(marks + 1);
-      localStorage.setItem("marks", marks);
+      setMarks(marks + 1)
       setAColor("green");
     } else {
       setAColor("red-500 ");
@@ -31,7 +29,6 @@ const Questions = (props) => {
   const handleB=()=>{
     if (correctAnswer === "answer_b") {
       setMarks(marks + 1);
-      localStorage.setItem("marks", marks);
       setAColor("green");
     } else {
       setAColor("red-500 ");
@@ -44,7 +41,6 @@ const Questions = (props) => {
   const handleC = () => {
     if (correctAnswer === "answer_c") {
       setMarks(marks + 1);
-      localStorage.setItem("marks", marks);
       setCColor("green");
     } else {
       setCColor("red-500 ");
@@ -57,8 +53,6 @@ const Questions = (props) => {
   const handleD=()=>{
     if(correctAnswer==="answer_d"){
       setMarks(marks+1)
-      localStorage.setItem("marks",marks)
-      console.log("color changed to green")
       setDColor("green")
     }
     else{
@@ -68,7 +62,7 @@ const Questions = (props) => {
       delayedFunction(qid, attr,type);
     }, 100);
   }
-  
+  localStorage.setItem("marks",marks)
   ;
   return (
     <>

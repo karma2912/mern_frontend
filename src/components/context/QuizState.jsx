@@ -24,7 +24,7 @@ const QuestState = (props) => {
       return (i = 9);
     }
   };
-  const func = async (i, attr,type) => {
+  const func = async (i, attr, type) => {
     if (attr === "Easy") {
       let response = await fetch(`http://localhost:5000/api/${type}question`);
       setfunc(i, response);
@@ -36,17 +36,22 @@ const QuestState = (props) => {
       setfunc(i, response);
     } else if (attr === "Ultimate") {
       const marks = localStorage.getItem("marks");
-      console.log(marks);
       if (marks <= 2) {
-        let response = await fetch(`http://localhost:5000/api/${type}question`);
+        let response = await fetch(
+          `http://localhost:5000/api/${type}Equestion`
+        );
         setfunc(i, response);
       }
       if (marks > 2 && marks <= 6) {
-        let response = await fetch(`http://localhost:5000/api/${type}Mquestion`);
+        let response = await fetch(
+          `http://localhost:5000/api/${type}Mquestion`
+        );
         setfunc(i, response);
       }
       if (marks > 6 && marks <= 10) {
-        let response = await fetch(`http://localhost:5000/api/${type}Hquestion`);
+        let response = await fetch(
+          `http://localhost:5000/api/${type}Hquestion`
+        );
         setfunc(i, response);
       }
     } else {
@@ -54,9 +59,38 @@ const QuestState = (props) => {
     }
   };
 
-  const delayedFunction = (i, attr ,type) => {
-    console.log(type)
-    func(i, attr,type);
+  const delayedFunction = (i, attr, type) => {
+    func(i, attr, type);
+  };
+  const [results, setResults] = useState([]);
+  const host = "http://localhost:5000";
+
+  //Fetching Notes
+  const getResult = async () => {
+    //Fetch API
+    const response = await fetch(`${host}/results/getresults`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": `${localStorage.getItem("Token")}`,
+      },
+    });
+    const json = await response.json();
+    setResults(json);
+  };
+
+  const addResult = async (subject_name, marks, subject_type) => {
+    //Fetch API
+    const response = await fetch(`${host}/results/addresult`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": `${localStorage.getItem("Token")}`,
+      },
+      body: JSON.stringify({ subject_name, marks, subject_type })
+    });
+    const json = await response.json();
+    setResults(results.concat(json));
   };
 
   return (
@@ -71,6 +105,9 @@ const QuestState = (props) => {
         correctAnswer,
         delayedFunction,
         qid,
+        results,
+        getResult,
+        addResult,
       }}
     >
       {props.children}

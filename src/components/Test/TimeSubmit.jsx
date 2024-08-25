@@ -7,8 +7,7 @@ const TimeSubmit = () => {
   const [modal, setModal] = useState(false);
   const [result, setResult] = useState(false);
   const context = useContext(QuizContext);
-  const { qid } = context;
-  console.log(qid);
+  const { qid,addResult } = context;
   useEffect(() => {
     setResult(qid === 11 ? !automodal : automodal && qid===0);
   }, [qid]);
@@ -27,6 +26,10 @@ const TimeSubmit = () => {
     setResult(!result);
   };
   const handleResult = () => {
+    const subject = localStorage.getItem("Subject")
+    const type = localStorage.getItem("Type")
+    const marks = localStorage.getItem("marks")
+    addResult(subject,marks,type)
     navigate("/results");
   };
   return (

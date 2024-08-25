@@ -7,25 +7,21 @@ const SubComponent = (props) => {
     localStorage.setItem("Type","Easy")
     localStorage.setItem("Subject",name)
     localStorage.setItem("Img",img)
-    console.log("easy")
   }
   const handleModerate=()=>{
     localStorage.setItem("Type","Moderate")
     localStorage.setItem("Subject",name)
     localStorage.setItem("Img",img)
-    console.log("Moderate")
   }
   const handleHard=()=>{
     localStorage.setItem("Type","Hard")
     localStorage.setItem("Subject",name)
     localStorage.setItem("Img",img)
-    console.log("Hard")
   }
   const handleUltimate=()=>{
     localStorage.setItem("Type","Ultimate")
     localStorage.setItem("Subject",name)
     localStorage.setItem("Img",img)
-    console.log("Ultimate")
   }
   return (
     <>

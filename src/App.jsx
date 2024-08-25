@@ -48,7 +48,7 @@ const App = () => {
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
                   <Result />
                 </div>
-                <Footer />
+                
               </>
             }
           />
@@ -85,7 +85,7 @@ const App = () => {
               <>
                 
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
-                  <First attr="Easy" type="get"/>
+                  <First attr="Easy" type="getwpE"/>
                 </div>
                 <Footer />
               </>

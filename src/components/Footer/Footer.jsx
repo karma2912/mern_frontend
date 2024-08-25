@@ -2,7 +2,7 @@ import React from "react";
 import img from "./qlogo.jpg";
 const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font font-serif md:mt-0 ">
+    <footer className="text-gray-600 body-font font-serif md:mt-0">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <img src={img} className="w-9 h-9 text-white rounded-full" />

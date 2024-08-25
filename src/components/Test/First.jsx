@@ -4,13 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 const First = (props) => {
   const { attr,type } = props;
-  console.log(type)
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
 
   const handleback = () => {
     navigate("/subjects");
-    console.log(attr);
   };
   const handleNext = () => {
     setModal(!modal);

@@ -7,7 +7,6 @@ import QuizContext from "../context/QuizContext";
 const Second = (props) => {
   const context = useContext(QuizContext);
   const { attr,type } = props;
-  console.log(type)
   const {
     question,
     answer_a,
