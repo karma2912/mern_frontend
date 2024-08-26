@@ -24,33 +24,35 @@ const QuestState = (props) => {
       return (i = 9);
     }
   };
+  const host = "https://mern-backend-ygl7.onrender.com";
+  
   const func = async (i, attr, type) => {
     if (attr === "Easy") {
-      let response = await fetch(`http://localhost:5000/api/${type}Equestion`);
+      let response = await fetch(`${host}/api/${type}Equestion`);
       setfunc(i, response);
     } else if (attr === "Moderate") {
-      let response = await fetch(`http://localhost:5000/api/${type}Mquestion`);
+      let response = await fetch(`${host}/api/${type}Mquestion`);
       setfunc(i, response);
     } else if (attr === "Hard") {
-      let response = await fetch(`http://localhost:5000/api/${type}Hquestion`);
+      let response = await fetch(`${host}/api/${type}Hquestion`);
       setfunc(i, response);
     } else if (attr === "Ultimate") {
       const marks = localStorage.getItem("marks");
       if (marks <= 2) {
         let response = await fetch(
-          `http://localhost:5000/api/${type}Equestion`
+          `${host}/api/${type}Equestion`
         );
         setfunc(i, response);
       }
       if (marks > 2 && marks <= 6) {
         let response = await fetch(
-          `http://localhost:5000/api/${type}Mquestion`
+          `${host}/api/${type}Mquestion`
         );
         setfunc(i, response);
       }
       if (marks > 6 && marks <= 10) {
         let response = await fetch(
-          `http://localhost:5000/api/${type}Hquestion`
+          `${host}/api/${type}Hquestion`
         );
         setfunc(i, response);
       }
@@ -63,7 +65,6 @@ const QuestState = (props) => {
     func(i, attr, type);
   };
   const [results, setResults] = useState([]);
-  const host = "http://localhost:5000";
 
   //Fetching Notes
   const getResult = async () => {
