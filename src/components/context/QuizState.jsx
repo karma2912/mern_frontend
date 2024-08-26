@@ -26,7 +26,7 @@ const QuestState = (props) => {
   };
   const func = async (i, attr, type) => {
     if (attr === "Easy") {
-      let response = await fetch(`http://localhost:5000/api/${type}question`);
+      let response = await fetch(`http://localhost:5000/api/${type}Equestion`);
       setfunc(i, response);
     } else if (attr === "Moderate") {
       let response = await fetch(`http://localhost:5000/api/${type}Mquestion`);
@@ -79,7 +79,7 @@ const QuestState = (props) => {
     setResults(json);
   };
 
-  const addResult = async (subject_name, marks, subject_type) => {
+  const addResult = async (subject_name, marks, subject_type,image) => {
     //Fetch API
     const response = await fetch(`${host}/results/addresult`, {
       method: "POST",
@@ -87,7 +87,7 @@ const QuestState = (props) => {
         "Content-Type": "application/json",
         "auth-token": `${localStorage.getItem("Token")}`,
       },
-      body: JSON.stringify({ subject_name, marks, subject_type })
+      body: JSON.stringify({ subject_name, marks, subject_type,image })
     });
     const json = await response.json();
     setResults(results.concat(json));

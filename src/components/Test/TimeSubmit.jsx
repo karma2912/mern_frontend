@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import QuizContext from "../context/QuizContext";
 
 const TimeSubmit = () => {
+  console.log(localStorage.getItem("Img"))
   const [automodal, setautoModal] = useState(false);
   const [modal, setModal] = useState(false);
   const [result, setResult] = useState(false);
@@ -29,7 +30,13 @@ const TimeSubmit = () => {
     const subject = localStorage.getItem("Subject")
     const type = localStorage.getItem("Type")
     const marks = localStorage.getItem("marks")
-    addResult(subject,marks,type)
+    const image = localStorage.getItem("Img")
+    console.log("latest",localStorage.getItem("Img"))
+    addResult(subject,marks,type,image)
+    localStorage.removeItem("Subject")
+    localStorage.removeItem("marks")
+    localStorage.removeItem("Type")
+    localStorage.removeItem("Img")
     navigate("/results");
   };
   return (
