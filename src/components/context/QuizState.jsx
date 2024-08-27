@@ -25,7 +25,7 @@ const QuestState = (props) => {
       console.log("Question available nhi hai bhai");
     }
   };
-  const host = "https://mern-backend-ygl7.onrender.com";
+  const host = "http://localhost:5000";
   
   const func = async (attr, type) => {
     console.log(attr)
