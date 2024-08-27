@@ -16,8 +16,6 @@ const Home = () => {
       navigate('/login')
     }
   },[])
-
-
   useGSAP(()=>{
    gsap.from(".quiz-head",{
     x:-1050,
@@ -56,13 +54,9 @@ const Home = () => {
     delay:2,
    })
    gsap.from(".inner-t",{
-    x:1050,
+    x:-1050,
     duration:1.5,
     delay:2,
-   })
-   gsap.from(".black-curve",{
-    y:-2050,
-    duration:1.5,
    })
   })
 

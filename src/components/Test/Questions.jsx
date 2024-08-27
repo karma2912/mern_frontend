@@ -23,7 +23,7 @@ const Questions = (props) => {
       setAColor("red-500 ");
     }
     setTimeout(() => {
-      delayedFunction(qid, attr,type);
+      delayedFunction(attr,type);
     }, 100);
   };
   const handleB=()=>{
@@ -34,7 +34,7 @@ const Questions = (props) => {
       setAColor("red-500 ");
     }
     setTimeout(() => {
-      delayedFunction(qid, attr,type);
+      delayedFunction(attr,type);
     }, 100);
   };
 
@@ -46,7 +46,7 @@ const Questions = (props) => {
       setCColor("red-500 ");
     }
     setTimeout(() => {
-      delayedFunction(qid, attr,type);
+      delayedFunction(attr,type);
     }, 100);
   };
 
@@ -59,7 +59,7 @@ const Questions = (props) => {
       setDColor("red-500 ")
     }
     setTimeout(() => {
-      delayedFunction(qid, attr,type);
+      delayedFunction(attr,type);
     }, 100);
   }
   localStorage.setItem("marks",marks)

@@ -17,9 +17,8 @@ const Second = (props) => {
     delayedFunction,
     qid,
   } = context;
-  const i = 0;
   useEffect(()=>{
-    delayedFunction(i,attr,type)
+    delayedFunction(attr,type)
   },[])
   return (
     <>

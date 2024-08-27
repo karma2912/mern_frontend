@@ -7,6 +7,8 @@ import wpf from "./wpf.jpg"
 
 const Subjects = () => {
 
+ const qid = Math.floor(Math.random()*50)
+ console.log(qid)
   return (
     <>
     <div className='flex w-full max-w-full flex-col items-center'>
