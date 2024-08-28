@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import GeneralKnowledge from './GeneralKnowledge'
 import ClgSubject from './ClgSubject'
 import { useGSAP } from '@gsap/react'
+import RoundSlider from '../Test/RoundSlider'
 
 const Home = () => {
   const navigate = useNavigate()

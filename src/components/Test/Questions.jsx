@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import QuizContext from "../context/QuizContext";
+import RoundSlider from "./RoundSlider";
 
 const Questions = (props) => {
+  const context = useContext(QuizContext)
+  const {qno,increaseQno} = context
   
   const [marks,setMarks] = useState(0)
   const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,qid,delayedFunction,attr,type} = props
-  
   const [Acolor,setAColor] = useState("red")
   const [Bcolor,setBColor] = useState("red")
   const [Ccolor,setCColor] = useState("red")
@@ -16,6 +19,7 @@ const Questions = (props) => {
    setDColor("red")
   },[qid])
   const handleA = () => {
+    increaseQno()
     if (correctAnswer === "answer_a") {
       setMarks(marks + 1)
       setAColor("green");
@@ -27,6 +31,7 @@ const Questions = (props) => {
     }, 100);
   };
   const handleB=()=>{
+    increaseQno()
     if (correctAnswer === "answer_b") {
       setMarks(marks + 1);
       setAColor("green");
@@ -39,6 +44,7 @@ const Questions = (props) => {
   };
 
   const handleC = () => {
+    increaseQno()
     if (correctAnswer === "answer_c") {
       setMarks(marks + 1);
       setCColor("green");
@@ -51,6 +57,7 @@ const Questions = (props) => {
   };
 
   const handleD=()=>{
+    increaseQno()
     if(correctAnswer==="answer_d"){
       setMarks(marks+1)
       setDColor("green")
@@ -66,13 +73,10 @@ const Questions = (props) => {
   ;
   return (
     <>
-      <div className="flex justify-between m-12 md:flex-row flex-col">
-        <div className="circle md:min-h-96 h-40 bg-slate-400 md:w-[20rem] w-full flex justify-center items-center rounded-2xl">
-          {`Total Marks:${marks}`}
-        </div>
-        <div className="question-part ">
-          <div className="question md:min-h-96 h-full md:w-[70rem] w-full bg-white rounded-2xl">
-            <div className="p-1 font-medium text-xl">{`Question ${qid} of 10`}</div>
+      <div className=" flex justify-around m-12 md:flex-row flex-col">
+        <RoundSlider/>
+          <div className="question md:min-h-96 h-full md:w-[60vw] w-full bg-white rounded-2xl">
+            <div className="p-1 font-medium text-xl">{`Question ${qno} of 10`}</div>
             <div className="mt-4 p-2 font-semibold">{question}</div>
             <div />
             <div className="options mt-12 font-semibold">
@@ -106,7 +110,6 @@ const Questions = (props) => {
               </div>
             </div>
           </div>
-        </div>
       </div>
     </>
   );

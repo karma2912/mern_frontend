@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import QuizContext from "./QuizContext";
 
 const QuestState = (props) => {
+  const [qno,setQno] = useState(1)
+  const increaseQno=()=>{
+    setQno(qno+1)
+  }
   const [question, setQuestion] = useState(null);
   const [answer_a, setAnswer_a] = useState(null);
   const [answer_b, setAnswer_b] = useState(null);
@@ -11,7 +15,6 @@ const QuestState = (props) => {
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const setfunc = async (response) => {
     const i = Math.floor(Math.random()*50)
-    console.log(i)
     const json = await response.json();
     setQuestion(json[i].Question);
     setCorrectAnswer(json[i].correct_answer);
@@ -21,15 +24,15 @@ const QuestState = (props) => {
     setAnswer_c(json[i].Answers.answer_c);
     setAnswer_d(json[i].Answers.answer_d);
     setQid(json[i].Qid);
-    if (i === 50) {
+    if (qno === 11) {
       console.log("Question available nhi hai bhai");
+      setQno(1)
+
     }
   };
-  const host = "http://localhost:5000";
+  const host = "https://mern-backend-ygl7.onrender.com";
   
   const func = async (attr, type) => {
-    console.log(attr)
-    console.log(type)
     if (attr === "Easy") {
       let response = await fetch(`${host}/api/${type}Equestion`);
       setfunc(response);
@@ -112,6 +115,8 @@ const QuestState = (props) => {
         results,
         getResult,
         addResult,
+        qno,
+        increaseQno
       }}
     >
       {props.children}
