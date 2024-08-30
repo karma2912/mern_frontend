@@ -23,7 +23,7 @@ const Second = (props) => {
   },[])
   return (
     <>
-    <div className='md:min-h-5/6 min-h-fit md:w-11/12 w-full bg-red-400 rounded-2xl'>
+    <div className='md:min-h-5/6 min-h-fit md:w-11/12 w-full bg-red-500 rounded-2xl'>
     <TimeSubmit/>
     <Questions question={question} answer_a={answer_a} answer_b={answer_b} answer_c={answer_c} answer_d={answer_d} correctAnswer={correctAnswer} qid={qid} delayedFunction={delayedFunction} attr={attr} type={type} qno={qno}/>
     <Progress/>

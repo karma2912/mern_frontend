@@ -16,7 +16,7 @@ const First = (props) => {
   return (
     <>
       {!modal && (
-        <div className="md:h-5/6 min-h-[25rem] md:w-4/5 w-11/12 bg-red-400 md:rounded-[6rem] rounded-lg flex flex-col md:justify-around justify-between items-center md:p-8 p-5">
+        <div className="md:h-5/6 min-h-[25rem] md:w-4/5 w-11/12 bg-purple-400 borde md:rounded-[6rem] rounded-lg flex flex-col md:justify-around justify-between items-center md:p-8 p-5">
           <div className="md:text-5xl text-4xl">Start Test</div>
           <div className="md:text-2xl text-lg">{`This test is a ${attr} level test which means the questions will not be auto updated as per answers given by you. On every Correct answer you will get 1 marks and on every wrong answer you will get 0 marks. The test will be of 15 marks and time will also be 15 minutes. The questions will be on MCQ's basis.`}</div>
           <div className="md:text-2xl text-lg md:w-1/3 w-full flex flex-row justify-evenly items-center">

@@ -66,7 +66,7 @@ const Home = () => {
       <div className="md:h-fit h-[95rem]">
         <div className="black-curve h-[40rem] w-full bg-black flex justify-around items-center rounded-b-[15rem] shadow-xl text-yellow-400">
           <div className="md:text-7xl text-5xl font-bold md:p-16 p-8 flex flex-col justify-start md:items-start items-center">
-            <span className="quiz-head">
+            <span className="quiz-head ">
               Daily Quiz, Daily
               <br />
               Improve. Play Today!

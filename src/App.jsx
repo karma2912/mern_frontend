@@ -44,7 +44,7 @@ const App = () => {
             key="results"
             element={
               <>
-                <Navbar color="bg-red-400" />
+                <Navbar color="bg-yellow-200" />
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
                   <Result />
                 </div>

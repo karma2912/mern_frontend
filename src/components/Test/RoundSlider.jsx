@@ -13,12 +13,12 @@ const RoundSlider = () => {
     <>
 <div className="relative size-100">
   <svg className="size-full h-full w-[17rem] -rotate-90" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="18" cy="18" r="16" fill="none" className="stroke-current text-red-300 dark:text-neutral-700" strokeWidth="2"></circle>
-    <circle cx="18" cy="18" r="16" fill="none" className="stroke-current text-red-500 dark:text-blue-500" strokeWidth="2" strokeDasharray="100" strokeDashoffset={`${range}`}strokeLinecap="round"></circle>
+    <circle cx="18" cy="18" r="16" fill="none" className="stroke-current text-white dark:text-neutral-700 " strokeWidth="2"></circle>
+    <circle cx="18" cy="18" r="16" fill="none" className="stroke-current text-yellow-300 dark:text-blue-500 border-yellow-300" strokeWidth="2" strokeDasharray="100" strokeDashoffset={`${range}`}strokeLinecap="round"></circle>
   </svg>
 
   <div className="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2">
-    <span className="text-center text-2xl font-bold text-black dark:text-blue-500">{`${qno}`}</span>
+    <span className="text-center text-2xl font-bold text-yellow-300 dark:text-blue-500">{`${qno}`}</span>
   </div>
 </div>
     </>

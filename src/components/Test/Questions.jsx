@@ -82,13 +82,13 @@ const Questions = (props) => {
             <div className="options mt-12 font-semibold">
               <div className="flex md:flex-row flex-col justify-around ">
                 <button
-                  className={`w-[18rem] border-2 bg-${Acolor}-300 p-2 mb-2 rounded-2xl text-wrap`}
+                  className={`w-[18rem] border-2 bg-${Acolor}-300 p-2 mb-2 bg-red-300 rounded-2xl text-wrap border-black`}
                   onClick={handleA}
                 >
                   {answer_a}
                 </button>
                 <button
-                  className={`w-[18rem] border-2 bg-${Bcolor}-300 p-2 mb-2 rounded-2xl text-wrap`}
+                  className={`w-[18rem] border-2 bg-${Bcolor}-300 p-2 mb-2 rounded-2xl text-wrap border-black`}
                   onClick={handleB}
                 >
                   {answer_b}
@@ -96,13 +96,13 @@ const Questions = (props) => {
               </div>
               <div className="flex md:flex-row flex-col justify-around">
                 <button
-                  className={`w-[18rem] border-2 bg-${Ccolor}-300 p-2 mb-2 rounded-2xl text-wrap`}
+                  className={`w-[18rem] border-2 bg-${Ccolor}-300 p-2 mb-2 rounded-2xl text-wrap border-black`}
                   onClick={handleC}
                 >
                   {answer_c}
                 </button>
                 <button
-                  className={`w-[18rem] border-2 bg-${Dcolor}-300 p-2 mb-2 rounded-2xl text-wrap`}
+                  className={`w-[18rem] border-2 bg-${Dcolor}-300 p-2 mb-2 rounded-2xl text-wrap border-black`}
                   onClick={handleD}
                 >
                   {answer_d}

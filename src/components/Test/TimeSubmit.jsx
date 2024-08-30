@@ -244,11 +244,11 @@ const TimeSubmit = () => {
         </div>
       )}
       <div className="flex justify-between m-12">
-        <div className="text-xl" id="timer">
+        <div className="text-xl text-green-500" id="timer">
           Time Component
         </div>
         <button
-          className="h-14 w-40 bg-green-950 text-white rounded-3xl text-xl"
+          className="h-14 w-40 bg-green-500 text-black rounded-3xl text-xl"
           onClick={handleClick}
         >
           Submit
