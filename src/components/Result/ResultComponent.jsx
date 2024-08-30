@@ -6,7 +6,7 @@ const ResultComponent = (props) => {
     let min = (Number(results.date.slice(14,16))+30)<=60 ? Number(results.date.slice(14,16))+30 : Number(results.date.slice(14,16))-30
     const sec = Number(results.date.slice(17,19)) 
     const finalTime = `${finalHour}:${min}:${sec}`
-    const day = results.date.slice(8,10)
+    const day = hour<=24? Number(results.date.slice(8,10)): Number(results.date.slice(8,10))+1
     const month = results.date.slice(5,7)
     const year = results.date.slice(0,4)
     const finalDate = `${day}-${month}-${year}`
