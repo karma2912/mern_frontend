@@ -63,7 +63,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="md:h-[55rem] h-[95rem]">
+      <div className="md:h-fit h-[95rem]">
         <div className="black-curve h-[40rem] w-full bg-black flex justify-around items-center rounded-b-[15rem] shadow-xl text-yellow-400">
           <div className="md:text-7xl text-5xl font-bold md:p-16 p-8 flex flex-col justify-start md:items-start items-center">
             <span className="quiz-head">
@@ -87,7 +87,7 @@ const Home = () => {
           </div>
           <img src={quiz} className="image md:h-2/3 h-0 " />
         </div>
-        <div className="outer-box flex justify-center position relative md:-top-20 top-10 z-10">
+        <div className="outer-box flex justify-center relative md:-top-20 md:mt-0 mt-10 top-0 z-10">
           <div className="md:h-72 h-[51rem] w-2/3 bg-white text-center p-2 rounded-2xl shadow-2xl">
             <span className="font-semibold text-lg p-3">Check your General Knowledge</span>
             <div className="flex md:justify-around pt-4 md:flex-row flex-col">
@@ -121,12 +121,12 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex justify-center items-center pb-4 md:mt-10 mt-0">
+        <div className="flex justify-center items-center pb-4 md:mt-10 mt-10">
         <GeneralKnowledge />
       </div>
       <div className="flex justify-center items-center pt-4 md:mt-10 mt-0">
         <ClgSubject />
+      </div>
       </div>
     </>
   );

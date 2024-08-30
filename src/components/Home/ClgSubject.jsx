@@ -3,7 +3,7 @@ import clgf from "./clgf.webp";
 import { Link } from "react-router-dom";
 const ClgSubject = () => {
   return (
-    <div className="md:h-[32rem] h-[82rem] md:w-11/12 w-full flex md:flex-row flex-col justify-between items-center rounded-2xl">
+    <div className="md:h-full h-[82rem] md:w-11/12 w-full flex md:flex-row flex-col justify-between items-center rounded-2xl">
       <div className="text-5xl md:w-[55rem] w-11/12 bg-yellow-300 font-bold md:p-16 p-10 rounded-2xl border-2 border-yellow-500 shadow-2xl">
         Institutional Subjects
         <div className="text-lg pt-4">
