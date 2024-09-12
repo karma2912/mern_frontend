@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 const ClgSubject = () => {
   return (
     <div className="md:h-full h-[82rem] md:w-11/12 w-full flex md:flex-row flex-col justify-between items-center rounded-2xl">
-      <div className="text-5xl md:w-[55rem] w-11/12 bg-yellow-300 font-bold md:p-16 p-10 rounded-2xl border-2 border-yellow-500 shadow-2xl">
+      <div className="md:text-5xl text-4xl font-extrabold md:w-[55rem] w-11/12 bg-yellow-300 md:font-bold md:p-16 p-10 rounded-2xl border-2 border-yellow-500 shadow-2xl">
         Institutional Subjects
-        <div className="text-lg pt-4">
+        <div className="md:text-lg text-base pt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
           dicta voluptatum pariatur illum odio nisi iste ipsa fuga aliquid
           quibusdam harum placeat fugiat omnis facilis minus ex laudantium,
           laboriosam dolorem.
         </div>
-        <div className="text-lg pt-4">
+        <div className="md:text-lg text-base pt-4">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint, hic
           natus? Saepe ex velit explicabo mollitia placeat voluptatibus commodi,
           inventore aspernatur! Perferendis nisi sed vitae neque at eligendi

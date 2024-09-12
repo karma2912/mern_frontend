@@ -79,7 +79,7 @@ const Questions = (props) => {
             <div className="p-1 font-medium text-xl">{`Question ${qno} of 10`}</div>
             <div className="mt-4 p-2 font-semibold">{question}</div>
             <div className="options mt-12 font-semibold">
-              <div className="flex md:flex-row flex-col justify-around p-2">
+              <div className="flex md:flex-row flex-col justify-around items-center p-2">
                 <button
                   className={`md:w-[18rem] w-full border-2 bg-${Acolor}-300 p-2 mb-4 bg-red-300 md:rounded-2xl rounded-lg text-wrap border-black`}
                   onClick={handleA}
@@ -87,7 +87,7 @@ const Questions = (props) => {
                   {answer_a}
                 </button>
                 <button
-                  className={`md:w-[18rem] w-full border-2 bg-${Bcolor}-300 p-2 md:rounded-2xl rounded-lg text-wrap border-black`}
+                  className={`md:w-[18rem] w-full border-2 bg-${Bcolor}-300 p-2 mb-4 bg-red-300 md:rounded-2xl rounded-lg text-wrap border-black`}
                   onClick={handleB}
                 >
                   {answer_b}
@@ -95,13 +95,13 @@ const Questions = (props) => {
               </div>
               <div className="flex md:flex-row flex-col justify-around p-2">
                 <button
-                  className={`md:w-[18rem] w-full border-2 bg-${Ccolor}-300 p-2 mb-4 md:rounded-2xl rounded-lg text-wrap border-black`}
+                  className={`md:w-[18rem] w-full border-2 bg-${Ccolor}-300 p-2 mb-4 bg-red-300 md:rounded-2xl rounded-lg text-wrap border-black`}
                   onClick={handleC}
                 >
                   {answer_c}
                 </button>
                 <button
-                  className={`md:w-[18rem] w-full border-2 bg-${Dcolor}-300 p-2 md:rounded-2xl rounded-lg text-wrap border-black`}
+                  className={`md:w-[18rem] w-full border-2 bg-${Dcolor}-300 p-2 mb-4 bg-red-300 md:rounded-2xl rounded-lg text-wrap border-black`}
                   onClick={handleD}
                 >
                   {answer_d}

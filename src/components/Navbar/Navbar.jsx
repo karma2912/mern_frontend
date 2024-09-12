@@ -38,7 +38,7 @@ const Navbar = (props) => {
   return (
     <>
       <header className={`text-black w-full body-font ${props.color} font-serif position sticky top-0 z-40 md:h-[5rem] h-[4rem]`}>
-        <div className="container w-full mx-auto flex flex-wrap flex-col md:flex-row items-center">
+        <div className="container w-full mx-auto flex flex-wrap md:flex-row items-center">
           <a className="flex justify-between title-font font-medium items-center md:w-auto w-full  text-gray-900 md:mb-0">
             <div ref={NavRef} className="flex justify-center md:p-5 p-3 items-center">
             <img src={img}

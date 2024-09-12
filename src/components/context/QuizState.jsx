@@ -100,6 +100,10 @@ const QuestState = (props) => {
     setResults(results.concat(json));
   };
 
+  const delResult = async () =>{
+    const response = await fetch(`${host}/results/delresult`)
+  }
+
   return (
     <QuizContext.Provider
       value={{
