@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import QuizState from "./components/context/QuizState";
 import Result from "./components/Result/Result";
 import Login from "./components/Home/Login";
+import SignUp from "./components/Home/Signup";
 
 const App = () => {
 
@@ -17,11 +18,22 @@ const App = () => {
         <Routes>
           <Route
             path="/"
+            key="signup"
+            element={
+              <>
+                <div className="md:h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif flex justify-center items-center">
+                  <SignUp/>
+                </div>
+              </>
+            }
+          />
+          <Route
+            path="/login"
             key="login"
             element={
               <>
                 <div className="md:h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif flex justify-center items-center">
-                  <Login />
+                  <Login/>
                 </div>
               </>
             }

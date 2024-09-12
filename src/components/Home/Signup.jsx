@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { useState} from "react"
-import Login from './Login';
 
 
 const SignUp = () => {
@@ -10,7 +9,7 @@ const SignUp = () => {
   const handleClick= async (e)=>{
     const {name,email,password} = credentials;
     e.preventDefault()
-    const response = await fetch("http://localhost:5000/auth/registeruser", {
+    const response = await fetch("https://mern-backend-ygl7.onrender.com/auth/registeruser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -48,7 +47,7 @@ const SignUp = () => {
         </div>
       </dialog>
     </div>
-    {!logins && <section className="text-gray-600 body-font relative">
+     && <section className="text-gray-600 body-font relative">
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-12">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Sign Up</h1>
@@ -115,7 +114,7 @@ const SignUp = () => {
         </div>
       </div>
     </div>
-  </section>}
+  </section>
     </>
   )
 }
