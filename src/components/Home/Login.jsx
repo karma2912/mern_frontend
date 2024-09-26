@@ -1,5 +1,5 @@
 import { useState} from "react"
-import { useNavigate } from "react-router-dom"
+import {Link, useNavigate } from "react-router-dom"
 import React from 'react'
 
 const Login = () => {
@@ -7,7 +7,7 @@ const Login = () => {
     const [credentials,setCredentials] = useState({email:"",password:""})
     const handleClick= async (e)=>{
     e.preventDefault()
-    const response = await fetch("https://mern-backend-ygl7.onrender.com/auth/login", {
+    const response = await fetch("http://localhost:5000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -52,7 +52,7 @@ const Login = () => {
           </div>
           </div>
           <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-            <a className="text-indigo-500">example@email.com</a>
+            <a className="">Don't have an account?</a><Link className="text-indigo-500 ml-4 cursor-pointer" to='/signup'>SignUp</Link>
             <p className="leading-normal my-5">49 Smith St.
               <br/>Saint Cloud, MN 56301
             </p>

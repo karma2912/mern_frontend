@@ -1,23 +1,40 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import QuizContext from '../context/QuizContext'
 
-const Progress = () => {
+const Progress = (props) => {
+  const [count,setCount] = useState(0)
   const context = useContext(QuizContext)
-  const {qno} = context
+  const {attr,type} = props
+  localStorage.removeItem("marks")
+  const {qno,increaseQno,decreaseQno,delayedFunction,correctAnswer,marks,setMarks} = context
+  const handlePrev= async ()=>{
+    decreaseQno()
+    setCount(count-1)
+    delayedFunction(attr,type,count-1)
+
+  }
+  const handleNext=()=>{
+    increaseQno()
+    setCount(count+1)
+       delayedFunction(attr,type,count+1)
+   if(correctAnswer===givenAnswer){
+    setMarks(marks+1)
+    localStorage.setItem("marksss",marks)
+   }
+}
 return (
-    <div className='m-12 hidden bg-blue-300 h-48 md:flex justify-around items-center text-xl rounded-2xl border-black border-2'>
-      <div className={qno===1 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>1</div>
-      <div className={qno===2 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>2</div>
-      <div className={qno===3 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>3</div>
-      <div className={qno===4 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>4</div>
-      <div className={qno===5 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>5</div>
-      <div className={qno===6 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>6</div>
-      <div className={qno===7 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>7</div>
-      <div className={qno===8 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>8</div>
-      <div className={qno===9 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>9</div>
-      <div className={qno===10 ? `h-14 w-20 bg-green flex justify-center items-center text-black bg-green-400 rounded-3xl`:`h-14 w-20 bg-black flex text-white justify-center items-center rounded-3xl`}>10</div>
+   <>
+   <div className='flex justify-between items-center m-12 h-38'>
+    <div className=''>
+      <button className='border-2 border-green-400 pt-4 pb-4 pr-10 pl-10 rounded-3xl text-xl bg-green-400' onClick={handlePrev}><i className="fa-solid fa-arrow-left mr-3"></i>Previous</button>
     </div>
+    <div className=''>
+    <button className='border-2 border-green-400 pt-4 pb-4 pr-10 pl-10 rounded-3xl text-xl bg-green-400' onClick={handleNext}>Next<i className="fa-solid fa-arrow-right ml-3"></i></button>
+    </div>
+   </div>
+   </>
   )
+
 }
 
 export default Progress

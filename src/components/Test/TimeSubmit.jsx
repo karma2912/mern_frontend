@@ -28,11 +28,11 @@ const TimeSubmit = () => {
   const handleResult = () => {
     const subject = localStorage.getItem("Subject")
     const type = localStorage.getItem("Type")
-    const marks = localStorage.getItem("marks")
+    const marks = localStorage.getItem("marksss")
     const image = localStorage.getItem("Img")
     addResult(subject,marks,type,image)
     localStorage.removeItem("Subject")
-    localStorage.removeItem("marks")
+    localStorage.removeItem("marksss")
     localStorage.removeItem("Type")
     localStorage.removeItem("Img")
     navigate("/results");
@@ -203,7 +203,7 @@ const TimeSubmit = () => {
                       </h3>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">{`You Got ${localStorage.getItem(
-                          "marks"
+                          "marksss"
                         )}/10`}</p>
                       </div>
                     </div>

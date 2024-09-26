@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import QuizContext from "./QuizContext";
 
 const QuestState = (props) => {
+  const [randomNumbers,setRandomNumbers] = useState(Array.from({ length: 10 }, () => Math.floor(Math.random() * 50)))
   const [qno,setQno] = useState(1)
+  const [marks,setMarks] = useState(1)
   const increaseQno=()=>{
     setQno(qno+1)
+    console.log("Increased question from quizstate")
+  }
+  const decreaseQno=()=>{
+    setQno(qno-1)
   }
   const [question, setQuestion] = useState(null);
   const [answer_a, setAnswer_a] = useState(null);
@@ -13,8 +19,15 @@ const QuestState = (props) => {
   const [answer_d, setAnswer_d] = useState(null);
   const [qid, setQid] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState(null);
-  const setfunc = async (response) => {
-    const i = Math.floor(Math.random()*50)
+  const setfunc = async (response,count) => {
+    console.log(randomNumbers)
+    console.log(randomNumbers[count])
+    console.log(count)
+    const a = randomNumbers[count]
+    if(a===0){
+      const i = Number(a)
+    }
+    const i = Number(a) -1
     const json = await response.json();
     setQuestion(json[i].Question);
     setCorrectAnswer(json[i].correct_answer);
@@ -24,51 +37,50 @@ const QuestState = (props) => {
     setAnswer_c(json[i].Answers.answer_c);
     setAnswer_d(json[i].Answers.answer_d);
     setQid(json[i].Qid);
-    if (qno === 11) {
+    if (qno === 10) {
       console.log("Question available nhi hai bhai");
       setQno(1)
-
     }
   };
-  const host = "https://mern-backend-ygl7.onrender.com";
+  const host = "http://localhost:5000";
   
-  const func = async (attr, type) => {
+  const func = async (attr, type,count) => {
     if (attr === "Easy") {
       let response = await fetch(`${host}/api/${type}Equestion`);
-      setfunc(response);
+      setfunc(response,count);
     } else if (attr === "Moderate") {
       let response = await fetch(`${host}/api/${type}Mquestion`);
-      setfunc(response);
+      setfunc(response,count);
     } else if (attr === "Hard") {
       let response = await fetch(`${host}/api/${type}Hquestion`);
-      setfunc(response);
+      setfunc(response,count);
     } else if (attr === "Ultimate") {
       const marks = localStorage.getItem("marks");
       if (marks <= 2) {
         let response = await fetch(
           `${host}/api/${type}Equestion`
         );
-        setfunc(response);
+        setfunc(response,count);
       }
       if (marks > 2 && marks <= 6) {
         let response = await fetch(
           `${host}/api/${type}Mquestion`
         );
-        setfunc(response);
+        setfunc(response,count);
       }
       if (marks > 6 && marks <= 10) {
         let response = await fetch(
           `${host}/api/${type}Hquestion`
         );
-        setfunc(response);
+        setfunc(response,count);
       }
     } else {
       console.log("No attribute has been given");
     }
   };
 
-  const delayedFunction = (attr, type) => {
-    func(attr, type);
+  const delayedFunction = (attr, type,count) => {
+    func(attr, type,count);
   };
   const [results, setResults] = useState([]);
 
@@ -120,7 +132,10 @@ const QuestState = (props) => {
         getResult,
         addResult,
         qno,
-        increaseQno
+        increaseQno,
+        decreaseQno,
+        marks,
+        setMarks,
       }}
     >
       {props.children}

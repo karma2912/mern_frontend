@@ -1,15 +1,22 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { useState} from "react"
+import icon from './icons8-tick.gif'
 
 
 const SignUp = () => {
+  const [toggle,setToggle] = useState(false)
   localStorage.removeItem("token")
   const [credentials,setCredentials] = useState({name:"",email:"",password:""})
+  const handleToggle =()=>{
+    console.log("toggle")
+    setToggle(false)
+  }
   const handleClick= async (e)=>{
+    setToggle(true)
     const {name,email,password} = credentials;
     e.preventDefault()
-    const response = await fetch("https://mern-backend-ygl7.onrender.com/auth/registeruser", {
+    const response = await fetch("http://localhost:5000/auth/registeruser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -19,7 +26,7 @@ const SignUp = () => {
       const json = await response.json();
       console.log(json)
       if(json){
-        document.getElementById("my_modal_1").showModal()
+        
       }
     }
   const onchange = (e) => {
@@ -28,26 +35,55 @@ const SignUp = () => {
   
   return (
     <>
-    <div>
-    <dialog
-        id="my_modal_1"
-        className="modal border-2 border-indigo-600 rounded-3xl shadow-2xl"
-      >
-        <div className="modal-box h-[15rem] w-[20rem]">
-          <div className="p-4 w-full">
-            Account has been created Successfully Now login with the credentials to save your New Notes!!!
+{ toggle &&<div>
+    <div
+          className="relative z-10 w-full"
+          aria-labelledby="modal-title"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+            aria-hidden="true"
+          ></div>
+
+        <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full  items-center w-full justify-center p-4 text-center sm:items-center sm:p-0">
+              <div className="relative transform overflow-hidden rounded-lg md:w-screen w-full bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                  <div className="sm:flex sm:items-start flex justify-between">
+                    <div className='flex items-center'>
+                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                   <img src={icon}></img>
+                    </div>
+                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                      <h3
+                        className="text-base font-semibold leading-6 text-gray-900"
+                        id="modal-title"
+                      >
+                        Account created successfully!
+                      </h3>
+                    </div>
+                    </div>
+                    <div>
+                    <i className="fa-solid fa-xmark text-xl cursor-pointer" onClick={handleToggle}></i>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                  <button
+                    type="button"
+                    className="mt-3 text-base inline-flex w-full justify-center rounded-md text-white px-3 py-2 font-semibold shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-indigo-600 sm:mt-0 sm:w-auto bg-indigo-500"
+                   >
+                    <Link to='/'>Login</Link>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-            <form method="dialog" className="flex justify-around items-center text-white p-4">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn border-1 bg-indigo-600 pt-1 pb-1 pl-5 pr-5 rounded">
-                Close
-              </button>
-              <Link className='btn border-1 bg-indigo-600 pt-1 pb-1 pl-5 pr-5 rounded' to="/login">Login</Link>
-            </form>
         </div>
-      </dialog>
-    </div>
-     && <section className="text-gray-600 body-font relative">
+    </div>}
+     <section className="text-gray-600 body-font relative">
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-12">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Sign Up</h1>
@@ -73,17 +109,12 @@ const SignUp = () => {
               <input type="password" id="password" name="password" value={credentials.password} onChange={onchange}className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"/>
             </div>
           </div>
-          <div className="p-2 w-full">
-            <div className="relative">
-              <label htmlFor="cpassword" className="leading-7 text-sm text-gray-600">Confirm Password</label>
-              <input type="password" id="cpassword" name="cpassword" value={credentials.password} onChange={onchange}className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"/>
-            </div>
-          </div>
+         
           <div className="p-2 w-full">
             <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" onClick={handleClick}>Button</button>
           </div>
           <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-            <a className="text-indigo-500">example@email.com</a>
+            <a className="">Already have an account?</a><Link className="text-indigo-500 ml-4 cursor-pointer" to='/'>Login</Link>
             <p className="leading-normal my-5">49 Smith St.
               <br/>Saint Cloud, MN 56301
             </p>

@@ -18,22 +18,22 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            key="signup"
-            element={
-              <>
-                <div className="md:h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif flex justify-center items-center">
-                  <SignUp/>
-                </div>
-              </>
-            }
-          />
-          <Route
-            path="/login"
             key="login"
             element={
               <>
                 <div className="md:h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif flex justify-center items-center">
                   <Login/>
+                </div>
+              </>
+            }
+          />
+          <Route
+            path="/signup"
+            key="signup"
+            element={
+              <>
+                <div className="md:h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif flex justify-center items-center">
+                  <SignUp/>
                 </div>
               </>
             }
