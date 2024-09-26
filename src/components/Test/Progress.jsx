@@ -11,16 +11,19 @@ const Progress = (props) => {
     decreaseQno()
     setCount(count-1)
     delayedFunction(attr,type,count-1)
+    const givenAnswer = localStorage.getItem('Option selected')
 
   }
   const handleNext=()=>{
     increaseQno()
     setCount(count+1)
        delayedFunction(attr,type,count+1)
+    const givenAnswer = localStorage.getItem('Option selected')
    if(correctAnswer===givenAnswer){
     setMarks(marks+1)
     localStorage.setItem("marksss",marks)
    }
+   localStorage.setItem("direction","right")
 }
 return (
    <>
