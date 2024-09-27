@@ -4,10 +4,8 @@ import QuizContext from "./QuizContext";
 const QuestState = (props) => {
   const [randomNumbers,setRandomNumbers] = useState(Array.from({ length: 10 }, () => Math.floor(Math.random() * 50)))
   const [qno,setQno] = useState(1)
-  const [marks,setMarks] = useState(1)
   const increaseQno=()=>{
     setQno(qno+1)
-    console.log("Increased question from quizstate")
   }
   const decreaseQno=()=>{
     setQno(qno-1)
@@ -55,7 +53,7 @@ const QuestState = (props) => {
       let response = await fetch(`${host}/api/${type}Hquestion`);
       setfunc(response,count);
     } else if (attr === "Ultimate") {
-      const marks = localStorage.getItem("marks");
+      const marks = localStorage.getItem("marksss");
       if (marks <= 2) {
         let response = await fetch(
           `${host}/api/${type}Equestion`
@@ -133,9 +131,7 @@ const QuestState = (props) => {
         addResult,
         qno,
         increaseQno,
-        decreaseQno,
-        marks,
-        setMarks,
+        decreaseQno
       }}
     >
       {props.children}

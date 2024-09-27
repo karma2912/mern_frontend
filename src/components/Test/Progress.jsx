@@ -3,16 +3,21 @@ import QuizContext from '../context/QuizContext'
 
 const Progress = (props) => {
   const [count,setCount] = useState(0)
+  const [marks,setMarks] = useState(0)
   const context = useContext(QuizContext)
   const {attr,type} = props
   localStorage.removeItem("marks")
-  const {qno,increaseQno,decreaseQno,delayedFunction,correctAnswer,marks,setMarks} = context
+  const {qno,increaseQno,decreaseQno,delayedFunction,correctAnswer,qid} = context
+
+  useEffect(()=>{
+   localStorage.setItem("marksss",marks)
+  },[marks])
   const handlePrev= async ()=>{
     decreaseQno()
     setCount(count-1)
     delayedFunction(attr,type,count-1)
     const givenAnswer = localStorage.getItem('Option selected')
-
+    setMarks(prevMarks=> prevMarks - 1)
   }
   const handleNext=()=>{
     increaseQno()
@@ -21,9 +26,9 @@ const Progress = (props) => {
     const givenAnswer = localStorage.getItem('Option selected')
    if(correctAnswer===givenAnswer){
     setMarks(marks+1)
-    localStorage.setItem("marksss",marks)
    }
-   localStorage.setItem("direction","right")
+
+
 }
 return (
    <>
