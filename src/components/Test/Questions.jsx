@@ -5,15 +5,13 @@ import RoundSlider from "./RoundSlider";
 const Questions = (props) => {
   const context = useContext(QuizContext)
   const {qno,increaseQno,qid} = context
-  const [savedQ,setSavedQ] = useState([])
+
   const {question,answer_a,answer_b,answer_c,answer_d,correctAnswer,delayedFunction,attr,type} = props
   const [Acolor,setAColor] = useState("lightblue")
   const [Bcolor,setBColor] = useState("lightblue")
   const [Ccolor,setCColor] = useState("lightblue")
   const [Dcolor,setDColor] = useState("lightblue")
-  useEffect(()=>{
-   setSavedQ(prevArr=>[...savedQ,qid])
-  },[qid])
+ 
   useEffect(()=>{
    setAColor("lightblue")
    setBColor("lightblue")
@@ -56,7 +54,9 @@ const Questions = (props) => {
       <div className="flex justify-around m-12 md:flex-row flex-col">
         <RoundSlider/>
           <div className="question md:min-h-96 h-full md:w-[60vw] w-full bg-white rounded-2xl">
-            <div className="p-1 font-medium text-xl">{`Question ${qno} of 10`}</div>
+            <div className="p-3 font-medium text-xl flex justify-between"><div>{`Question ${qno} of 10`}</div>
+            <div className="text-lg">{`Level: ${attr}`}</div>
+            </div>
             <div className="mt-4 p-2 font-semibold">{question}</div>
             <div className="options mt-12 font-semibold">
               <div className="flex md:flex-row flex-col justify-around items-center p-2">

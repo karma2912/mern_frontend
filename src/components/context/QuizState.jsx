@@ -18,9 +18,6 @@ const QuestState = (props) => {
   const [qid, setQid] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const setfunc = async (response,count) => {
-    console.log(randomNumbers)
-    console.log(randomNumbers[count])
-    console.log(count)
     const a = randomNumbers[count]
     if(a===0){
       const i = Number(a)
