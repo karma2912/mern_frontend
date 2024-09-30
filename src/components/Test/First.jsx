@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import QuizContext from "../context/QuizContext";
 const First = (props) => {
   const context = useContext(QuizContext);
-  const { attr,type } = props;
+  const { attr, type } = props;
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
- 
+
   const handleback = () => {
     navigate("/subjects");
   };
@@ -40,7 +40,7 @@ const First = (props) => {
           </div>
         </div>
       )}
-      {modal && <Second attr={attr} type={type}/>}
+      {modal && <Second attr={attr} type={type} />}
     </>
   );
 };

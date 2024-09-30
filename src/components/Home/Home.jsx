@@ -79,7 +79,7 @@ const Home = () => {
               questions
             </div>
             <Link
-              className="button text-xl font-normal border-2 mt-5 border-black bg-green-400 p-2 rounded-xl text-black"
+              className="button text-xl font-normal border-2 mt-5 border-black bg-green-400 hover:bg-green-600 p-2 rounded-xl text-black"
               to="/test"
             >
               <i className="fa-regular fa-circle-play mr-2"></i>PLAY NOW

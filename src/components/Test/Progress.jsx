@@ -5,7 +5,7 @@ const Progress = (props) => {
   const [count, setCount] = useState(0);
   const [markArr, setMarkArr] = useState([]);
   const [previousMarks, setPreviousMarks] = useState(0);
-  const [ansArr,setAnsArr] = useState([])
+  const [ansArr, setAnsArr] = useState([]);
   const [marks, setMarks] = useState(0);
   const context = useContext(QuizContext);
   const { attr, type } = props;
@@ -17,30 +17,27 @@ const Progress = (props) => {
     if (currentMarks > previousMarks) {
       setMarkArr((prevArr) => [...prevArr, 1]);
     } else {
-      setMarkArr((prevArr) => [...prevArr, 0])
+      setMarkArr((prevArr) => [...prevArr, 0]);
     }
   }, [qno]);
- useEffect(()=>{
-
- },[marks])
+  useEffect(() => {}, [marks]);
   useEffect(() => {
     setPreviousMarks(marks);
   }, [marks]);
-  
-  useEffect(()=>{
-    const newArr = markArr.slice(1)
-    setAnsArr(newArr)
-    },[markArr])
+
+  useEffect(() => {
+    const newArr = markArr.slice(1);
+    setAnsArr(newArr);
+  }, [markArr]);
   const handlePrev = async () => {
     decreaseQno();
     setCount(count - 1);
     delayedFunction(attr, type, count - 1);
     const givenAnswer = localStorage.getItem("Option selected");
-    if(ansArr[count-1]===0){
-      setMarks(marks)
-    }
-    else{
-      setMarks(marks-1)
+    if (ansArr[count - 1] === 0) {
+      setMarks(marks);
+    } else {
+      setMarks(marks - 1);
     }
   };
   const handleNext = () => {
