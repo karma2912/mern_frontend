@@ -4,10 +4,12 @@ import React from 'react'
 
 const Login = () => {
   const navigate = useNavigate()
+  const [handleMail,setHandleMail] = useState(false)
     const [credentials,setCredentials] = useState({email:"",password:""})
     const handleClick= async (e)=>{
     e.preventDefault()
-    const response = await fetch("http://localhost:5000/auth/login", {
+    try {
+      const response = await fetch("http://localhost:5000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -19,6 +21,12 @@ const Login = () => {
     if(json.token){
       const value = localStorage.getItem("Token")
     navigate("/home")
+    }
+    } catch(error) {
+      setHandleMail(true)
+      setTimeout(()=>{
+        setHandleMail(false)
+      },5000)
     }
     }
     const onchange = (e) => {
@@ -37,13 +45,17 @@ const Login = () => {
           <div className="p-2 w-full">
             <div className="relative">
               <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
-              <input type="email" id="email" name="email" value={credentials.email} onChange={onchange} className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+              {!handleMail && <input type="email" id="email" name="email" value={credentials.email} onChange={onchange} className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300  focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>}
+              {handleMail && <input type="email" id="email" name="email" value={credentials.email} onChange={onchange} className="w-full bg-gray-100 bg-opacity-50 rounded border border-red-500  focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>}
             </div>
           </div>
           <div className="p-2 w-full">
             <div className="relative">
               <label htmlFor="password" className="leading-7 text-sm text-gray-600">Password</label>
-              <input type="email" id="password" name="password" value={credentials.password} onChange={onchange}className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-8 transition-colors duration-200 ease-in-out"/>
+              {!handleMail &&<input type="email" id="password" name="password" value={credentials.password} onChange={onchange}className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-8 transition-colors duration-200 ease-in-out"/>}
+              
+              {handleMail && <input type="email" id="password" name="password" value={credentials.password} onChange={onchange}className="w-full bg-gray-100 bg-opacity-50 rounded border border-red-500 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-8 transition-colors duration-200 ease-in-out"/>}
+              {handleMail && <p className="text-center text-base text-red-500 mt-5">Invalid credentials</p>}
             </div>
           </div>
           <div className="w-full flex justify-center items-center">

@@ -3,8 +3,8 @@ import clgf from "./clgf.webp";
 import { Link } from "react-router-dom";
 const ClgSubject = () => {
   return (
-    <div className="md:h-full h-[82rem] md:w-11/12 w-full flex md:flex-row flex-col justify-between items-center rounded-2xl">
-      <div className="md:text-5xl text-4xl font-extrabold md:w-[55rem] w-11/12 bg-yellow-300 md:font-bold md:p-16 p-10 rounded-2xl border-2 border-yellow-500 shadow-2xl">
+    <div className="md:h-full sm:h-[82rem] h-[75rem] md:w-11/12 lg:w-5/6 w-full flex md:flex-row flex-col justify-between items-center rounded-2xl">
+      <div className="md:text-5xl text-4xl font-extrabold lg:w-[40rem] md:w-[55rem] w-11/12 bg-yellow-300 md:font-bold md:p-16 p-10 rounded-2xl border-2 border-yellow-500 shadow-2xl">
         Institutional Subjects
         <div className="md:text-lg text-base pt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
@@ -26,7 +26,7 @@ const ClgSubject = () => {
         </Link>
       </div>
       <i className="fa-solid fa-arrow-left md:fa-arrow-up  ml-3 text-8xl"></i>
-      <img src={clgf} className=""></img>
+      <img src={clgf} className="lg:w-auto w-[25rem]"></img>
     </div>
   );
 };

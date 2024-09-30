@@ -3,20 +3,20 @@ import img from "./qlogo.jpg";
 const Footer = () => {
   return (
     <footer className="text-gray-600 body-font font-serif md:mt-0">
-      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <div className="container px-5 py-16 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <img src={img} className="w-9 h-9 text-white rounded-full" />
           <span className="ml-3 text-xl ">QuizQuest</span>
         </a>
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-          © 2020 Karmablocks —
+          © 2020 yashblocks —
           <a
             href="https://twitter.com/knyttneve"
             className="text-gray-600 ml-1"
             rel="noopener noreferrer"
             target="_blank"
           >
-            @karma
+            @yash
           </a>
         </p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
