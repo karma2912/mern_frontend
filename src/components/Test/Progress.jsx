@@ -56,7 +56,7 @@ const Progress = (props) => {
         <div className="">
           <button
             className="border-2 border-green-400 pt-4 pb-4 pr-10 pl-10 rounded-3xl text-xl bg-green-400"
-            onClick={handlePrev}
+            onClick={handlePrev} disabled={qno===1}
           >
             <i className="fa-solid fa-arrow-left mr-3"></i>Previous
           </button>

@@ -7,8 +7,13 @@ import frook from "./frook.webp"
 import { Link, useNavigate } from 'react-router-dom'
 import GeneralKnowledge from './GeneralKnowledge'
 import ClgSubject from './ClgSubject'
+import './Home.css'
 import { useGSAP } from '@gsap/react'
-import RoundSlider from '../Test/RoundSlider'
+import amf from "./amf.jpg"
+import sef from "./sef.jpg"
+import dbmsf from "./dbmsf.jpg"
+import wpf from "./wpf.jpg"
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Home = () => {
   const navigate = useNavigate()
@@ -16,7 +21,9 @@ const Home = () => {
     if(!localStorage.getItem("Token")){
       navigate('/login')
     }
+    window.scrollTo(0, 0);
   },[])
+  gsap.registerPlugin(ScrollTrigger);
   useGSAP(()=>{
    gsap.from(".quiz-head",{
     x:-1050,
@@ -59,11 +66,63 @@ const Home = () => {
     duration:1.5,
     delay:2,
    })
+  const isDesktop = window.innerWidth >= 1024;
+   if(isDesktop){
+  gsap.fromTo(".seimages",{opacity:1},{
+    scale:1.2,
+    marginLeft:"15vw",
+    marginBottom:"4vw",
+    scrollTrigger: {
+      trigger: ".images1", 
+      start: "top 50%",
+      end: "bottom 60%",
+      scrub: 1, 
+      
+    },
+    duration:2
+  })
+  gsap.fromTo(".amimages",{opacity:1},{
+    scale:1.2,
+    marginRight:"15vw",
+    marginBottom:"4vw",
+    scrollTrigger: {
+      trigger: ".images1", 
+      start: "top 50%",
+      end: "bottom 60%",
+      scrub: 1, 
+    },
+    duration:2
+  })
+  gsap.fromTo(".dbmsimages",{opacity:1},{
+    scale:1.2,
+    marginRight:"15vw",
+    marginTop:"4vw",
+    scrollTrigger: {
+      trigger: ".images1", 
+      start: "top 50%",
+      end: "bottom 60%",
+      scrub: 1,
+    },
+    duration:2
+  })
+  gsap.fromTo(".wpimages",{opacity:1},{
+    scale:1.2,
+    marginLeft:"15vw",
+    marginTop:"4vw",
+    scrollTrigger: {
+      trigger: ".images1", 
+      start: "top 50%",
+      end: "bottom 60%",
+      scrub: 1, 
+    },
+    duration:2
+  })
+}
   })
 
   return (
     <>
-      <div className="md:h-fit min-h-[95rem]">
+      <div className="md:h-fit min-h-[95rem] overflow-x-hidden">
         <div className="black-curve h-[40rem] w-full bg-black flex justify-around items-center rounded-b-[15rem] shadow-xl text-yellow-400">
           <div className="md:text-7xl text-5xl font-bold md:p-16 p-8 flex flex-col justify-start md:items-start items-center">
             <span className="quiz-head ">
@@ -126,6 +185,19 @@ const Home = () => {
       </div>
       <div className="flex justify-center items-center pt-4 md:mt-10 mt-0">
         <ClgSubject />
+      </div>
+      <div className='h-[140vh] w-full bg-black mt-10 overflow-y-hidden overflow-x-hidden'>
+        <div className='h-[25%] w-full  flex justify-center items-center gap-[2vw] mt-[vh]'><span className='dancing-script-400  text-[5vw] p-5 rounded-xl text-black border-2 border-black bg-yellow-300'>College</span><p className='text-[5vw] text-yellow-300'>Subjects</p></div>
+        <div className='h-[75%] w-full inside flex flex-col items-center '>
+          <div className='h-[45%] w-full flex justify-center items-end images1'>
+          <img src={amf} className='h-[20vw] amimages hover:cursor-pointer'/>
+          <img src={sef} className='h-[17vw] seimages hover:cursor-pointer'/>
+          </div>
+          <div className='h-[45%] w-full flex justify-center items-start images2'>
+          <img src={dbmsf} className='h-[17vw] dbmsimages hover:cursor-pointer'/>
+          <img src={wpf} className='h-[14vw] wpimages hover:cursor-pointer'/>
+          </div>
+        </div>
       </div>
       </div>
     </>
