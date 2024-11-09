@@ -9,6 +9,7 @@ import QuizState from "./components/context/QuizState";
 import Result from "./components/Result/Result";
 import Login from "./components/Home/Login";
 import SignUp from "./components/Home/Signup";
+import NewNavbar from "./components/Navbar/Navbar";
 
 const App = () => {
 
@@ -43,8 +44,8 @@ const App = () => {
             key="home"
             element={
               <>
-                <Navbar color="bg-yellow-200" />
-                <div className="md:min-h-screen h-full w-full max-w-full md:overflow-visible overflow-x-hidden font-serif">
+                <NewNavbar color="bg-yellow-200" />
+                <div className="md:min-h-screen h-full z-10 w-full max-w-full md:overflow-visible overflow-x-hidden font-serif">
                   <Home />
                 </div>
                   <Footer />
@@ -56,7 +57,7 @@ const App = () => {
             key="results"
             element={
               <>
-                <Navbar color="bg-yellow-200" />
+                <NewNavbar color="bg-yellow-200" />
                 <div className="bg-white h-screen w-full max-w-full flex flex-col justify-center items-center font-serif">
                   <Result />
                 </div>

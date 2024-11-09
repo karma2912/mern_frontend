@@ -9,11 +9,12 @@ import GeneralKnowledge from './GeneralKnowledge'
 import ClgSubject from './ClgSubject'
 import './Home.css'
 import { useGSAP } from '@gsap/react'
-import amf from "./amf.jpg"
-import sef from "./sef.jpg"
-import dbmsf from "./dbmsf.jpg"
-import wpf from "./wpf.jpg"
+import amf from "./amp.png"
+import sef from "./sep.png"
+import dbmsf from "./dbmsp.png"
+import wpf from "./webpp.png"
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import About from './About'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -21,17 +22,17 @@ const Home = () => {
     if(!localStorage.getItem("Token")){
       navigate('/login')
     }
-    window.scrollTo(0, 0);
+    
   },[])
   gsap.registerPlugin(ScrollTrigger);
   useGSAP(()=>{
    gsap.from(".quiz-head",{
-    x:-1050,
+    x:-1150,
     duration:1.5,
     delay:1
    })
    gsap.from(".text-part",{
-    x:-1050,
+    x:-1150,
     duration:1.5,
     delay:1.1
    })
@@ -70,7 +71,7 @@ const Home = () => {
    if(isDesktop){
   gsap.fromTo(".seimages",{opacity:1},{
     scale:1.2,
-    marginLeft:"15vw",
+    marginLeft:"7vw",
     marginBottom:"4vw",
     scrollTrigger: {
       trigger: ".images1", 
@@ -81,10 +82,34 @@ const Home = () => {
     },
     duration:2
   })
+  gsap.fromTo(".setext",{opacity:0},{
+    fontSize:"2.6vw",
+    delay:2,
+    opacity:1,
+    scrollTrigger: {
+      trigger: ".images1", 
+      start: "top 50%",
+      end: "bottom 60%",
+      scrub: 1, 
+    },
+    duration:2
+  })
   gsap.fromTo(".amimages",{opacity:1},{
     scale:1.2,
-    marginRight:"15vw",
+    marginRight:"7vw",
     marginBottom:"4vw",
+    scrollTrigger: {
+      trigger: ".images1", 
+      start: "top 50%",
+      end: "bottom 60%",
+      scrub: 1, 
+    },
+    duration:2
+  })
+  gsap.fromTo(".amtext",{opacity:0},{
+    fontSize:"2.6vw",
+    delay:2,
+    opacity:1,
     scrollTrigger: {
       trigger: ".images1", 
       start: "top 50%",
@@ -95,7 +120,7 @@ const Home = () => {
   })
   gsap.fromTo(".dbmsimages",{opacity:1},{
     scale:1.2,
-    marginRight:"15vw",
+    marginRight:"7vw",
     marginTop:"4vw",
     scrollTrigger: {
       trigger: ".images1", 
@@ -105,10 +130,34 @@ const Home = () => {
     },
     duration:2
   })
+  gsap.fromTo(".dbmstext",{opacity:0},{
+    fontSize:"2.6vw",
+    delay:2,
+    opacity:1,
+    scrollTrigger: {
+      trigger: ".images1", 
+      start: "top 50%",
+      end: "bottom 60%",
+      scrub: 1, 
+    },
+    duration:2
+  })
   gsap.fromTo(".wpimages",{opacity:1},{
     scale:1.2,
-    marginLeft:"15vw",
+    marginLeft:"7vw",
     marginTop:"4vw",
+    scrollTrigger: {
+      trigger: ".images1", 
+      start: "top 50%",
+      end: "bottom 60%",
+      scrub: 1, 
+    },
+    duration:2
+  })
+  gsap.fromTo(".wptext",{opacity:0},{
+    fontSize:"2.6vw",
+    delay:2,
+    opacity:1,
     scrollTrigger: {
       trigger: ".images1", 
       start: "top 50%",
@@ -122,15 +171,15 @@ const Home = () => {
 
   return (
     <>
-      <div className="md:h-fit min-h-[95rem] overflow-x-hidden">
-        <div className="black-curve h-[40rem] w-full bg-black flex justify-around items-center rounded-b-[15rem] shadow-xl text-yellow-400">
-          <div className="md:text-7xl text-5xl font-bold md:p-16 p-8 flex flex-col justify-start md:items-start items-center">
-            <span className="quiz-head ">
+      <div className="md:h-fit min-h-[95rem] overflow-x-hidden -mt-24 z-10">
+        <div className="black-curve h-[78vh] z-10 w-full bg-black flex justify-around items-center rounded-b-[15rem] shadow-xl text-yellow-400 ">
+          <div className="md:text-[4vw] text-[7vw] font-bold md:p-16 p-8 flex flex-col justify-start md:items-start items-center">
+            <span className="quiz-head leading-tight">
               Daily Quiz, Daily
               <br />
               Improve. Play Today!
             </span>
-            <div className="text-part md:text-xl text-lg font-normal md:pt-16 pt-6">
+            <div className=" text-part md:text-[1.2vw] text-[3vw] font-normal md:pt-[3vw] pt-6">
               QuizQuest is a quiz app which provides a variety of questions
               related to the College Subjects!
               <br />
@@ -144,7 +193,7 @@ const Home = () => {
               <i className="fa-regular fa-circle-play mr-2"></i>PLAY NOW
             </Link>
           </div>
-          <img src={quiz} className="image md:h-2/3 h-0 " />
+          <img src={quiz} className="image md:h-[28vw] h-0 " />
         </div>
         <div className="outer-box flex justify-center relative md:-top-20 md:mt-0 mt-10 top-0 z-10">
           <div className="md:h-72 h-[51rem] w-2/3 bg-white text-center p-2 rounded-2xl shadow-2xl">
@@ -186,18 +235,26 @@ const Home = () => {
       <div className="flex justify-center items-center pt-4 md:mt-10 mt-0">
         <ClgSubject />
       </div>
-      <div className='h-[140vh] w-full bg-black mt-10 overflow-y-hidden overflow-x-hidden'>
-        <div className='h-[25%] w-full  flex justify-center items-center gap-[2vw] mt-[vh]'><span className='dancing-script-400  text-[5vw] p-5 rounded-xl text-black border-2 border-black bg-yellow-300'>College</span><p className='text-[5vw] text-yellow-300'>Subjects</p></div>
+      <div className='h-[140vh] bg-yellow-50 w-full bg-gradient-radial from-yellow-500 to-black p-6 mt-16 overflow-y-hidden overflow-x-hidden'>
+        <div className='h-[25%] w-full  flex justify-center items-center gap-[2vw] mt-[vh]'><span className='dancing-script-400  text-[5vw] p-5 rounded-xl text-yellow-200 border-2 bg-black'>College</span><p className='text-[5vw] text-black '>Subjects</p></div>
         <div className='h-[75%] w-full inside flex flex-col items-center '>
           <div className='h-[45%] w-full flex justify-center items-end images1'>
-          <img src={amf} className='h-[20vw] amimages hover:cursor-pointer'/>
-          <img src={sef} className='h-[17vw] seimages hover:cursor-pointer'/>
+          <div className='text-center amtext leading-tight'><p className='dancing-script-400 text-yellow-300'>Applied</p>Mathematics</div>
+          <img src={amf} className='h-[17vw]  amimages hover:cursor-pointer'/>
+          <img src={sef} className='h-[17vw]  seimages hover:cursor-pointer'/>
+          <div className='text-center setext  leading-tight'><p className='dancing-script-400 text-yellow-300'>Software</p>Engineering</div>
           </div>
           <div className='h-[45%] w-full flex justify-center items-start images2'>
-          <img src={dbmsf} className='h-[17vw] dbmsimages hover:cursor-pointer'/>
-          <img src={wpf} className='h-[14vw] wpimages hover:cursor-pointer'/>
+          <div className='flex flex-col justify-end items-center text-center h-full mr
+          -[5vw] wptext leading-tight'><p className='dancing-script-400 text-yellow-300'>Database</p>Management Sys</div>
+          <img src={dbmsf} className='h-[17vw]  dbmsimages hover:cursor-pointer'/>
+          <img src={wpf} className='h-[17vw]  wpimages hover:cursor-pointer'/>
+          <div className=' flex flex-col justify-end items-center h-full ml-[5vw] wptext leading-tight'><p className='dancing-script-400 text-yellow-300'>Website</p>Programming</div>
           </div>
         </div>
+      </div>
+      <div className='h-[100vh] w-full bg-red-200'>
+          <About/>
       </div>
       </div>
     </>

@@ -1,76 +1,102 @@
-import React, { useEffect, useRef, useState } from "react";
-import img from "./qlogo.jpg"
-import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = (props) => {
-  const navigate = useNavigate()
-  const NavRef = useRef(null)
-  const NavRef2 = useRef(null)
-  const optRef = useRef(null)
-  const [modal,setModal] = useState(false)
-  const toggleButton =()=>{
-    setModal(!modal)
+import { Link, NavLink } from 'react-router-dom'
+import gsap from "gsap"
+import { useEffect, useState } from 'react'
+
+const NewNavbar = (props) => {
+  const [toggle,setToggle] = useState(false)
+  const handleClick=()=>{
+    setToggle(toggle===false?true:false)
+    console.log("clicked")
   }
   useEffect(()=>{
-    gsap.from(NavRef.current,{
-    y:-30,
-    opacity:0,
-    duration:1,
-    delay:1
-   })
-   gsap.from(optRef.current,{
-    y:-10,
-    opacity:0,
-    duration:1,
-    delay:1,
-   }) 
-   gsap.from(NavRef2.current,{
-    y:-10,
-    opacity:0,
-    duration:1,
-    delay:1
-   })
-  },[])
-  const handleLogout=()=>{
-    localStorage.removeItem("Token")
-    navigate('/')
+    if (toggle) {
+      gsap.from(".main", {
+          x: -50,
+          duration: 0.5,
+      });
+      gsap.to('.screen', {
+          backgroundColor: "black",
+          duration: 0.2,
+      });
+      gsap.from('.second-half',{
+        y:50,
+        duration:0.5
+      })
   }
+  },[toggle])
   return (
     <>
-      <header className={`text-black w-full body-font ${props.color} font-serif position sticky top-0 z-40 md:h-[5rem] h-[4rem]`}>
-        <div className="container w-full mx-auto flex flex-wrap md:flex-row items-center">
-          <a className="flex justify-between title-font font-medium items-center md:w-auto w-full  text-gray-900 md:mb-0">
-            <div ref={NavRef} className="flex justify-center md:p-5 p-3 items-center">
-            <img src={img}
-              className="w-9 h-9 text-white rounded-full"
-            />            
-            <span className="ml-3 text-xl">QuizQuest</span>
-            </div>
-            <i ref={NavRef2} className="fa-solid fa-bars text-xl p-4 md:hidden relative" onClick={toggleButton}></i>
-         </a>
-         {modal && 
-           <div className={`text-black w-full body-font ${props.color} position sticky top-0 z-40 h-[14.5rem] `}>
-            <nav className="flex flex-col text-lg font-serif items-start p-3 w-full">
-            <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center" to="/home" onClick={toggleButton}>Home<i className="fa-solid fa-house"></i></Link>
-            <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center"to="/subjects" onClick={toggleButton}>Subjects<i className="fa-solid fa-book-open-reader"></i></Link>
-            <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center" to="/results" onClick={toggleButton}>Results<i className="fa-solid fa-square-poll-horizontal"></i></Link>
-            <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center" onClick={toggleButton}>Help<i className="fa-solid fa-handshake-angle"></i></Link>
-            <Link className="pb-1 mb-2 pl-2 border-l-2 border-b-2 border-black w-full hover:text-gray-900 flex justify-between items-center" to='/' onClick={toggleButton}>LogOut<i className="fa-solid fa-right-from-bracket"></i></Link>
-          </nav>
-          </div>}
-          <nav ref={optRef} className="md:ml-auto md:mr-auto md:flex hidden flex-wrap items-center text-base justify-center font-bold">
-            <Link className="mr-10 ml-10 hover:text-gray-900" to="/home">Home</Link>
-            <Link className="mr-10 ml-10 hover:text-gray-900" to="/subjects" >Subjects</Link>
-            <Link className="mr-10 ml-10 hover:text-gray-900" to="/results">Results</Link>
-            <Link className="mr-10 ml-10 hover:text-gray-900">Help</Link>
-          </nav>
-          <button className="md:inline-flex hidden items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 mr-2 md:mt-0" onClick={handleLogout}> 
-            Logout
-          </button>
+    <div className={`w-full h-24 bg-transparent pt-4 pb-4 flex md:justify-evenly justify-around items-center z-40 top-0 sticky text-yellow-400`}>
+        <div className='w-full h-full flex justify-between items-center'>
+         <div className='text-4xl pl-16'>
+            Q.
+         </div>
+         <div className='pr-20'>
+        {!toggle && <i className="fa-solid fa-bars text-2xl cursor-pointer" onClick={handleClick}></i>}
+        {toggle && <i className="fa-solid fa-xmark text-3xl cursor-pointer" onClick={handleClick}></i>}
+         </div>
         </div>
-      </header>
+    </div>
+   {toggle && <div className='h-screen w-full sticky top-0 z-30 gradient-bg -mt-24 screen'>
+    <div className='h-full w-full flex justify-center items-center'>
+      <div className='h-full md:w-[46%] w-[100%] md:border-r border-gray-700'>
+         <div className='h-full w-full flex md:pl-28 flex-col justify-center items-center'>
+            <div className='h-56 md:w-[16vw]  flex flex-col justify-between md:items-start items-center main'>
+            <NavLink className={(e)=>{return e.isActive?"text-yellow-300 md:text-4xl text-3xl font-medium":`text-white md:text-4xl text-3xl font-medium`}} to="/home" onClick={handleClick}>Homepage</NavLink>
+            <NavLink className={(e)=>{return e.isActive?"text-yellow-300 md:text-4xl text-3xl font-medium":`text-white md:text-4xl text-3xl font-medium`}} to="/subjects" onClick={handleClick}>Subjects</NavLink>
+            <NavLink className={(e)=>{return e.isActive?"text-yellow-300 md:text-4xl text-3xl font-medium":`text-white md:text-4xl text-3xl font-medium`}} to="/results" onClick={handleClick}>Results</NavLink>
+            <NavLink className={(e)=>{return e.isActive?"text-yellow-300 md:text-4xl text-3xl font-medium":`text-white md:text-4xl text-3xl font-medium`}} to="#" onClick={handleClick}>Help</NavLink>
+            </div>
+         </div>
+      </div>
+      <div className='h-full w-[54%] text-white  justify-start items-end pb-20 pl-20 md:flex hidden second-half'>
+         <div className='h-[68vh] w-4/5 flex flex-col'>
+         <div className='h-[60%] w-full border-b border-gray-600 flex'>
+         <div className='h-full w-1/2 flex flex-col font-medium text-xl'>
+           <span className='mb-8'>Projects</span>
+           <div className='flex flex-col font-medium text-base text-gray-500'>
+           <span className='mb-4 hover:text-white cursor-pointer'>Quiz Quest</span>
+           <span className='mb-4 hover:text-white cursor-pointer'>Personal Portfolio</span>
+           <span className='mb-4 hover:text-white cursor-pointer'>YNotes</span>
+           <span className='mb-4 hover:text-white cursor-pointer'>YNews</span>
+           <span className='mb-4 hover:text-white cursor-pointer'>Khan Crane</span>
+           <span className='mb-4 hover:text-white cursor-pointer'>Password Generator</span>
+           </div>
+         </div>
+         <div className='h-full w-1/2 flex flex-col font-medium text-xl'>
+         <span className='mb-8'>Useful links</span>
+           <div className='flex flex-col font-medium text-base text-gray-500'>
+           <a className='mb-4 hover:text-white cursor-pointer' target='_blank' href='https://x.com/YashRaj45608052'>Twitter<i className="fa-brands fa-x-twitter ml-2"></i></a>
+           <a className='mb-4 hover:text-white cursor-pointer' href="https://www.linkedin.com/in/yash-rajak?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn<i className="fa-brands fa-linkedin ml-2"></i></a>
+           <a className='mb-4 hover:text-white cursor-pointer' href="https://github.com/karma2912" target="_blank">GitHub<i className="fa-brands fa-github ml-2"></i></a>
+           </div>
+         </div>
+         </div>
+         <div className='h-[40%] w-full flex'>
+         <div className='h-full w-1/2 flex flex-col justify-end font-medium text-xl'>
+           <span className='mb-8'>Contact</span>
+           <div className='flex flex-col font-medium text-base text-gray-500'>
+           <span className='mb-4 hover:text-white cursor-pointer'>LinkedIn<i className="fa-brands fa-linkedin ml-2"></i></span>
+           <span className='mb-4 hover:text-white cursor-pointer'>rajakyash23@gmail.com</span>
+           <span className='mb-4 hover:text-white cursor-pointer'>+91 9561829120</span>
+           </div>
+         </div>
+         <div className='h-full w-1/2 flex flex-col justify-end font-medium text-xl'>
+           <span className='mb-8'>India</span>
+           <div className='flex flex-col font-medium text-base text-gray-500'>
+           <span className='mb-4 '>Maharashtra</span>
+           <span className='mb-4 '>Mumbai</span>
+           <span className='mb-4 '>Vasai</span>
+           </div>
+         </div>
+         </div>
+         </div>
+      </div>
+    </div>
+    </div>}
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default NewNavbar
