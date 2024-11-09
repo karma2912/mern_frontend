@@ -14,7 +14,7 @@ import sef from "./sep.png"
 import dbmsf from "./dbmsp.png"
 import wpf from "./webpp.png"
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import About from './About'
+import About from './About/About'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -171,9 +171,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="md:h-fit min-h-[95rem] overflow-x-hidden -mt-24 z-10">
+      <div className="md:h-fit min-h-[95rem] overflow-x-hidden overflow-y-hidden md:-mt-24 -mt-20 z-10">
         <div className="black-curve h-[78vh] z-10 w-full bg-black flex justify-around items-center rounded-b-[15rem] shadow-xl text-yellow-400 ">
-          <div className="md:text-[4vw] text-[7vw] font-bold md:p-16 p-8 flex flex-col justify-start md:items-start items-center">
+          <div className="md:text-[4vw] text-[9vw] font-bold md:p-16 p-8 flex flex-col justify-start md:items-start items-center">
             <span className="quiz-head leading-tight">
               Daily Quiz, Daily
               <br />
@@ -253,9 +253,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='h-[100vh] w-full bg-red-200'>
+      <div className='lg:h-[100vh] sm:h-[200vh] h-[330vh] w-full flex justify-center items-center'>
           <About/>
       </div>
+      <div className='other h-[100vh] w-full bg-green-400'></div>
       </div>
     </>
   );

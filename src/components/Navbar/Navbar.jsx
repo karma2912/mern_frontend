@@ -27,7 +27,7 @@ const NewNavbar = (props) => {
   },[toggle])
   return (
     <>
-    <div className={`w-full h-24 bg-transparent pt-4 pb-4 flex md:justify-evenly justify-around items-center z-40 top-0 sticky text-yellow-400`}>
+    <div className={`w-full md:h-24 h-20 lg:bg-transparent bg-black pt-4 pb-4 flex md:justify-evenly justify-around items-center z-40 top-0 sticky text-yellow-400`}>
         <div className='w-full h-full flex justify-between items-center'>
          <div className='text-4xl pl-16'>
             Q.
