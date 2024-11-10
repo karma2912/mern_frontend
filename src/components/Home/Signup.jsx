@@ -19,7 +19,7 @@ const SignUp = () => {
     setToggle(true);
     const { name, email, password } = credentials;
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/auth/registeruser", {
+    const response = await fetch("https://mern-backend-ygl7.onrender.com/auth/registeruser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
