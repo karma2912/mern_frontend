@@ -253,10 +253,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='lg:h-[100vh] sm:h-[200vh] h-[330vh] w-full flex justify-center items-center'>
+      <div className='lg:h-[100vh] sm:h-[200vh] h-[320vh] w-full flex justify-center items-center '>
           <About/>
       </div>
-      <div className='other h-[100vh] w-full bg-green-400'></div>
+      <div className='other h-[100vh] w-full bg-green-400'>
+        
+      </div>
       </div>
     </>
   );
