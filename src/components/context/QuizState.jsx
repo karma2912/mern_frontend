@@ -39,7 +39,7 @@ const QuestState = (props) => {
       setQno(1);
     }
   };
-  const host = "https://mern-backend-ygl7.onrender.com";
+  const host = "http://localhost:5000";
 
   const func = async (attr, type, count) => {
     if (attr === "Easy") {
